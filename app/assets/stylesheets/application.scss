@@ -1,0 +1,34 @@
+@import "variables";
+@import "mixins";
+@import "grid";
+@import "responsive";
+@import "typography";
+@import "navigation";
+@import "main";
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+
+body {
+	background-color: #F6F6F6;
+}
+
+.box {
+	background: white;
+	border-radius: 4px;
+	padding: 24px 36px;
+	box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+
+	color: #4C4C4C;
+
+	a {
+		color: #808080;
+
+		&:hover {
+			color: #333333;
+		}
+	}
+}
+
+
+
+
