@@ -24,11 +24,17 @@
 
 .btn {
 	@include base-btn();
-	@include bg-color(white, $blue);
-}
+	@include link-color($primary-color);
 
-.default-btn {
-	@include border-color($blue);
+	border: 2px solid $primary-color;
+	border-radius: 25px;
+
+	margin-top: 24px;
+
+	&:hover {
+		color: white;
+		background-color: $primary-color;
+	}
 }
 
 .alert {
