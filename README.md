@@ -34,7 +34,7 @@ rails db:migrate
 rails s
 ```
 
-6. Visit it [here](localhost:3000).
+6. Visit it at `localhost:3000`.
 
 ### Features
 
