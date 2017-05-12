@@ -22,4 +22,6 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: selist_production
+  username: selist
+  password: <%= ENV['SELIST_DATABASE_PASSWORD'] %>
