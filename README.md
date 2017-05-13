@@ -28,6 +28,15 @@ bundle
 rails db:migrate
 ```
 
+In case, any errors or problems related to database, 
+the code below provide you a clean database: 
+
+```
+rails db:drop:all
+rails db:migrate
+rails db:seed
+```
+
 5. Start the server.
 
 ```

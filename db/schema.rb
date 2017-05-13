@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20170513123400) do
     t.integer  "subject_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "list_title"
+    t.string   "title"
     t.index ["subject_id"], name: "index_lists_on_subject_id"
   end
 
@@ -28,9 +28,9 @@ ActiveRecord::Schema.define(version: 20170513123400) do
   end
 
   create_table "subjects", force: :cascade do |t|
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.string   "subject_title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "title"
   end
 
   create_table "subjects_users", id: false, force: :cascade do |t|
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20170513123400) do
     t.integer  "list_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "task_title"
+    t.string   "title"
     t.index ["list_id"], name: "index_tasks_on_list_id"
   end
 

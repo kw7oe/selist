@@ -1,26 +1,29 @@
 <div class="content">
-    <div class = "container">
-        <div class="row col-6">
-            <h1><%= student_home %></h1>
-        </div>
+  <div class = "container">
+    <div class="row col-6">
+        <h1><%= student_home %></h1>
     </div>
-    <div class="container">
-        <div class="flex-container">
-            <% @student.subjects.each do |subject| %>
-                <div class="board box">
-                    <h2><%= subject.subject_title %></h2>
-                    <% subject.lists.each do |list| %>
-                        <% list.tasks.each do |task|%>
-                            <% if (task.task_statuses.where(user_id:@student.id)).blank? %>
-                                <p id="<%= dom_id(task) %>">
-                                    <%= check_box_tag "task_id",task.id,false,{:class=>"checkDone",:task=>task.id,:user=>@student.id} %>
-                                    <%= task.task_title %>
-                                </p>
-                            <% end %>
-                        <% end %>
-                    <% end %>
-                </div>
+  </div>
+  <div class="container">
+    <div class="flex-container">
+      <% @student.subjects.each do |subject| %>
+
+        <div class="board box">
+          <h2><%= subject.title %></h2>
+          <% subject.lists.each do |list| %>
+
+            <% list.incompleted_tasks(@student).each do |task|%>             
+                <p id="<%= dom_id(task) %>">
+                  <%= check_box_tag "task_id",task.id,false,{:class=>"checkDone",:task=>task.id,:user=>@student.id} %>
+                  <%= task.title %>
+                </p>
             <% end %>
+
+          <% end %> 
         </div>
+        
+      <% end %>
     </div>
+  </div>
 </div>
+

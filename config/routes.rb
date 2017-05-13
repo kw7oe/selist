@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  get 'homepage/:id',to:'student_home#index'
+  get 'homepage/:id', to:'student_home#index'
   put 'task/done/:userId/:taskId',to:'student_home#done'
   root "static_pages#home"
 
