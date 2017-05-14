@@ -5,6 +5,10 @@
     margin-top:45px;
 }
 .board{
-    height:70vh;
+    min-height:70vh;
     margin:0 10px;
+    min-width:300px;
+}
+.flexbox{
+    display:flex;
 }
