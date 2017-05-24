@@ -1,0 +1,31 @@
+<div class="content">
+  <div class = "container">
+    <div class="row">
+        <h1><%= student_home %></h1>
+    </div>
+  </div>
+  <div class="container">
+    <div class="flexbox">
+      <% @student.subjects.each do |subject| %>
+
+        <div class="board box">
+          <%#this student id should be replace by getting current login user%>
+          <h2><%=link_to subject.title,"/subject/#{subject.id}/#{@student.id}"%></h2>
+          <% subject.lists.each do |list| %>
+            <div>
+              <h3><%= list.title %></h3>
+              <% list.incompleted_tasks(@student).each do |task|%>   
+                <p id="<%= dom_id(task) %>">
+                  <%= check_box_tag "task_id",task.id,false,{:class=>"checkDone",:task=>task.id,:user=>@student.id} %>
+                  <%= task.title %>
+                </p>
+              <% end %>
+            </div>
+          <% end %> 
+        </div>
+        
+      <% end %>
+    </div>
+  </div>
+</div>
+
