@@ -18,6 +18,10 @@
 	align-items: center;
 }
 
+.fluid-container {
+	max-width: 100%;
+}
+
 .i-link {
 	@include link-color($blue);
 }
