@@ -43,23 +43,24 @@ body {
 .feature {
 	display: flex;
 	background-color: #FEFEFE;
+	flex-direction: column;
 
 	.center {
 		width: 60%;
+		color: white;
 	}
 
 	.image {
-		width: 40%;
 		height: 100vh;
 		background-image: image-url("feature.jpg");
 		background-size: cover;
 		background-position: 50% 50%;
 	}
 
-	.details {
-		width: 60%;
-		position: relative;
-	}
+}
+
+.single_box {
+	margin-top: 5%;
 }
 
 .box {
@@ -77,6 +78,26 @@ body {
 			color: #333333;
 		}
 	}
+}
+
+@media (min-width: 750px) {
+	.feature {
+		flex-direction: row;
+
+		.center {
+			color: black;
+		}
+
+		.image {
+			width: 40%;
+		}
+
+		.details {
+			width: 60%;
+			position: relative;
+		}
+	}
+	
 }
 
 

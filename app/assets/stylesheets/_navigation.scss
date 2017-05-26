@@ -1,13 +1,16 @@
 .nav {
   @include base-nav($color: $primary-color);
-  position: fixed;
-  z-index: 99;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   color: white;
 
   ul {
+    
+    a {
+      color: white;
+    }
+
     li {
       &:hover { background-color: $primary-hover-color; }
       &:last-child { border-color: $primary-hover-color; }
@@ -18,6 +21,10 @@
 .nav-header {
   @include base-nav-header($weight: bold, $color: $primary-hover-color);
   font-size: 24px;
+
+  a {
+    color: white;
+  }
 }
 
 .dropdown-toggle {
