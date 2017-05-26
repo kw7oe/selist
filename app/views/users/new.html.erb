@@ -1,16 +1,31 @@
-<h1>Sign Up</h1>
-<%= form_for @user do |f| %>
-  <% if @user.errors.any? %>
-    <div class="error_messages">
-      <h2>Form is invalid</h2>
-      <ul>
-        <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<div class = "col-5 margin-3.5 box single_box">
 
+  <h1>Sign Up</h1>
+
+  <%= form_for @user do |f| %>
+
+    <% if @user.errors.any? %>
+      <div class="error_messages">
+        <h2>Form is invalid</h2>
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.text_field :email, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :type %>
+      <%= f.text_field :type, class: "form-control" %>
+    </div>
+
+<<<<<<< HEAD
   <div class="field">
     <%= f.label :email %><br />
     <%= f.text_field :email %>
@@ -31,3 +46,21 @@
   </div>
   <div class="actions"><%= f.submit "Sign Up" %></div>
 <% end %>
+=======
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password , class: "form-control"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit "Sign Up", class: "btn" %>
+    </div>
+
+  <% end %>
+</div>
+>>>>>>> cc5f82e5d275662e12077e6cfe7c7523029b044e
