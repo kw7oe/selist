@@ -1,5 +1,6 @@
 <% flash.each do |key,msg| %>
   <div class = "alert <%= key %>-alert">
     <%= msg %>
-  </div>
+    <a class = "close-alert" data-behavior= "close_alert"></a>
+  </div>  
 <% end %>

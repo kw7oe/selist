@@ -1,3 +1,26 @@
 // Place all the styles related to the tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.delete {
+  color: #B3B3B3;
+
+  &:before {
+    content: '\2715';
+  }
+}
+
+.check_done {
+  margin-right: 8px;
+}
+
+.task_title {
+  flex-grow: 2;
+}
+
+[id^="task_"] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+

@@ -20,14 +20,25 @@ document.addEventListener("turbolinks:load", function() {
     e.preventDefault();
     $(".dropdown").toggleClass("show");
   });
+
+  $(".check_done").click(function(e){
+      var parent=$(this).attr("task");
+      $("#task_"+parent).fadeOut();
+      var user=$(this).attr("user");
+      $.ajax({url:"/task/done/"+user+"/"+parent,method:"PUT"}).done(function(){
+          // $("#task_"+parent).fadeOut();
+      });
+  });
+
+  $("[data-behavior~=close_alert]").on("click", function(event) {
+    event.preventDefault();
+    close(event);
+  });
 });
-$(document).ready(function(){
-    $(".checkDone").click(function(e){
-        var parent=$(this).attr("task");
-        $("#task_"+parent).fadeOut();
-        var user=$(this).attr("user");
-        $.ajax({url:"/task/done/"+user+"/"+parent,method:"PUT"}).done(function(){
-            // $("#task_"+parent).fadeOut();
-        });
-    });
-});
+
+function close(event) {
+  var target = $(event.target).parent()
+  target.fadeOut(600, function(e) {
+      $(this).remove()
+  })
+}

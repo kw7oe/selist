@@ -1,0 +1,9 @@
+<div class = "col-3">
+  <div class = "box">
+    <h1><%= link_to subject.title, subject_path(subject) %></h1>
+    
+    <% subject.lists.each do |list| %>
+      <%= render partial: list, locals: { subject: subject } %>
+    <% end %>
+  </div>
+</div>

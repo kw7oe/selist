@@ -7,6 +7,12 @@
   <%= render partial: "users/subject_lists", 
              locals: { user: @teacher } %>
 
-  <%= link_to "Add Subject", new_subject_path, class: "btn" %>
+  
+  <div class = "col-3">
+  <div class = "box">
+    <%= link_to "Add Subject", new_subject_path %>
+  </div>
+  </div>
+
 </div>
 
