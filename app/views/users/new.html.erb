@@ -25,6 +25,28 @@
       <%= f.text_field :type, class: "form-control" %>
     </div>
 
+<<<<<<< HEAD
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :type %><br />
+    <%= f.select :type,[[Student],[Teacher]] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="actions"><%= f.submit "Sign Up" %></div>
+<% end %>
+=======
     <div class="form-group">
       <%= f.label :password %>
       <%= f.password_field :password , class: "form-control"%>
@@ -41,3 +63,4 @@
 
   <% end %>
 </div>
+>>>>>>> cc5f82e5d275662e12077e6cfe7c7523029b044e
