@@ -1,12 +1,19 @@
-<h1>Log In</h1>
-<%= form_tag sessions_path do %>
-  <div class="field">
-    <%= label_tag :email %><br />
-    <%= text_field_tag :email, params[:email] %>
-  </div>
-  <div class="field">
-    <%= label_tag :password %><br />
-    <%= password_field_tag :password %>
-  </div>
-  <div class="actions"><%= submit_tag "Log In" %></div>
-<% end %>
+<div class = "col-5 margin-3.5 box single_box">
+  <h1>Log In</h1>
+  <%= form_for(:session, url: signin_path) do |f|%>
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.text_field :email, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit "Log In", class: "btn" %>
+    </div>
+
+  <% end %>
+</div>
