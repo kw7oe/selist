@@ -4,13 +4,15 @@
 
 .flex-row-container {
   display: flex;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
-.board{
+.board {
   width: 100% / 4;
-  min-height:70vh;
-    
+  min-height:70vh;    
 }
-.flexbox{
+
+.flexbox {
     display:flex;
 }

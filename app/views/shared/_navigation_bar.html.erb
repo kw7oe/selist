@@ -13,7 +13,9 @@
 
     <% if current_user %>
     
-      <li>Logged in as <%= current_user.email %></li>
+      <%= link_to user_dashboard_path(current_user) do %>
+        <li class="<%= "active" if controller.action_name == "show" %>" >Dashboard</li>
+      <% end %>
       <%= link_to session_path("current"), method: "delete" do %>
         <li>Sign Out</li>
       <% end %>
