@@ -10,11 +10,14 @@ Rails.application.routes.draw do
   put 'task/done/:user_id/:task_id',to:'students#done'
   
   root "static_pages#home"
-  resources :users, only: [:new, :create, :edit] do 
-    resources :subjects
-  end
+  resources :users, only: [:new, :create, :edit]
   resources :teachers, except: [:new, :create, :edit]
   resources :students, except: [:new, :create, :edit]
   resources :sessions
+  resources :subjects do 
+    resources :lists do 
+      resources :tasks 
+    end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -7,7 +7,7 @@ class SubjectsController < ApplicationController
   def create
     @subject = current_user.subjects.create(subject_params)    
     if @subject.save 
-      redirect_to user_subject_path(current_user, @subject), notice: "#{@subject.title} created sucessfully"
+      redirect_to  @subject, notice: "#{@subject.title} created sucessfully"
     else
       render "new"
     end

@@ -6,6 +6,9 @@
   display: flex;
   padding-left: 15px;
   padding-right: 15px;
+  flex-wrap: wrap;
+
+  width: 100%;
 }
 
 .board {
