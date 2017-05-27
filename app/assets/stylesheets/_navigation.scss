@@ -5,13 +5,19 @@
   justify-content: space-between;
   color: white;
 
-  ul {
+  ul {    
+    display: flex;
+    align-items: center;
     
     a {
       color: white;
     }
 
     li {
+      display: flex;     
+      font-family: $primary-font;   
+      text-transform: uppercase;
+
       &:hover { background-color: $primary-hover-color; }
       &:last-child { border-color: $primary-hover-color; }
     }
@@ -53,18 +59,10 @@
     flex-direction: row;
 
 		ul {
-      display: flex;
-      align-items: center;
-
 		  li {
-		    display: flex;     
-        font-family: $primary-font;   
-        text-transform: uppercase;
-
 		    &:last-child {
 		      border-bottom: none;
 		    }
-
 		  }
 		}
 	}

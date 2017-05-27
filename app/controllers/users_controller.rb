@@ -4,9 +4,11 @@ class UsersController < ApplicationController
   end
 
   def create
+    @user = User.new(user_params)
+    
     if params[:user][:type] == "Student"
       @user = Student.new(user_params)
-    else
+    elsif params[:user][:type] == "Teacher"
       @user = Teacher.new(user_params)
     end
 
