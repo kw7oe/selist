@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 d = Time.now.strftime("%B %d,%Y")
 
-student = Student.create()
+student = Student.create(email: "choongkwern@hotmail.com", password: "password")
 student.subjects.create(title:"Software Engineering")
 student.subjects.create(title:"Artificial Intelligence")
 student.subjects.create(title:"Data Structure & Algorithm")

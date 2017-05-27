@@ -1,3 +1,16 @@
 // Place all the styles related to the students controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.flex-row-container {
+  display: flex;
+}
+
+.board{
+  width: 100% / 4;
+  min-height:70vh;
+    
+}
+.flexbox{
+    display:flex;
+}

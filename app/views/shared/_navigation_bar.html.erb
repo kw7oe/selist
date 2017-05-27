@@ -10,11 +10,23 @@
   <ul class="dropdown">
     <li>About</li>
     <li>Features</li>
+
     <% if current_user %>
-      Logged in as <%= current_user.email %>
-      <%= link_to "Signed Out", session_path("current"), method: "delete" %>
+    
+      <li>Logged in as <%= current_user.email %></li>
+      <%= link_to session_path("current"), method: "delete" do %>
+        <li>Sign Out</li>
+      <% end %>
+
     <% else %>
-      <li> <%= link_to "Sign Up", new_user_path %> </li>
+
+      <%= link_to sign_in_path do %>        
+        <li>Sign In</li>
+      <% end %>
+      <%= link_to new_user_path do %>
+        <li>Sign Up</li>
+      <% end %>
+
     <% end %>
   </ul>
 </nav>

@@ -1,28 +1,21 @@
-<div class="content">
-  <div class = "container">
-    <div class="row col-6">
-        <h1>Home Page</h1>
-    </div>
-  </div>
-  <div class="container">
-    <div class="flex-container">
-      <% @student.subjects.each do |subject| %>
 
-        <div class="board box">
-          <h2><%= subject.title %></h2>
-          <% subject.lists.each do |list| %>
+<h1>Dashboard</h1>
 
-            <% list.incompleted_tasks(@student).each do |task|%>             
-                <p id="<%= dom_id(task) %>">
-                  <%= check_box_tag "task_id",task.id,false,{:class=>"checkDone",:task=>task.id,:user=>@student.id} %>
-                  <%= task.title %>
-                </p>
-            <% end %>
+<div class="flex-row-container">
+  <% @student.subjects.each do |subject| %>
+    <div class="col-3">
+    <div class="box">
+      <h2><%= subject.title %></h2>
+      <% subject.lists.each do |list| %>
 
-          <% end %> 
-        </div>
-        
-      <% end %>
-    </div>
-  </div>
+        <% list.incompleted_tasks(@student).each do |task|%>             
+            <p id="<%= dom_id(task) %>">
+              <%= check_box_tag "task_id",task.id,false,{:class=>"checkDone",:task=>task.id,:user=>@student.id} %>
+              <%= task.title %>
+            </p>
+        <% end %>
+      <% end %> 
+    </div> 
+    </div>       
+  <% end %>
 </div>
