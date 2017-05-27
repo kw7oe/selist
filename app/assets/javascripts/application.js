@@ -21,3 +21,13 @@ document.addEventListener("turbolinks:load", function() {
     $(".dropdown").toggleClass("show");
   });
 });
+$(document).ready(function(){
+    $(".checkDone").click(function(e){
+        var parent=$(this).attr("task");
+        $("#task_"+parent).fadeOut();
+        var user=$(this).attr("user");
+        $.ajax({url:"/task/done/"+user+"/"+parent,method:"PUT"}).done(function(){
+            // $("#task_"+parent).fadeOut();
+        });
+    });
+});
