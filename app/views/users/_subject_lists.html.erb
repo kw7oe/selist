@@ -1,3 +1,8 @@
-<% user.subjects.each do |subject| %>
-  <%= render subject %>     
+<% unless user.subjects.empty? %>
+  <% user.subjects.each do |subject| %>
+    <%= render subject %>     
+  <% end %> 
+<% else %>
+  <p>Enrolled to a subject now</p>
 <% end %>
+

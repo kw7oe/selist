@@ -1,13 +1,16 @@
 d = Time.now.strftime("%B %d,%Y")
 
 student = Student.create(email: "choongkwern@hotmail.com", password: "password")
+student2 = Student.create(email: "student@example.com", password: "password")
 teacher = Teacher.create(email: "teacher@example.com", password: "password")
+
+# Create Subjects
 teacher.subjects.create(title:"Software Engineering")
 teacher.subjects.create(title:"Artificial Intelligence")
 teacher.subjects.create(title:"Data Structure & Algorithm")
 teacher.subjects.create(title:"Communication Skill")
 
-# More test data
+# Get Subjects
 subject = teacher.subjects.first
 subject1 = teacher.subjects.where(title:"Artificial Intelligence").first
 subject2 = teacher.subjects.where(title:"Data Structure & Algorithm").first
@@ -41,9 +44,9 @@ list3 = subject3.lists.where(title: d).first
 end
 
 # Add Student to Subject
-subject.users.push(student)
-subject1.users.push(student)
-subject2.users.push(student)
-subject3.users.push(student)
+subject.users.push([student, student2])
+subject1.users.push([student, student2])
+subject2.users.push([student, student2])
+subject3.users.push([student, student2])
 
 

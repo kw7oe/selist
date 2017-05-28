@@ -1,9 +1,8 @@
-<p id="<%= dom_id(task) %>">
+<div id="<%= dom_id(task) %>">
   <% if current_user.is_student? %>
-  <%= check_box_tag "task_id", task.id, false, { class: "check_done",
-      task: task.id, 
-      user: current_user.id} 
-  %>
+    <%= form_for(task, url: done_student_url(task.id), method: :put, remote: true) do %>
+      <%= check_box_tag "task_id", task.id, false, { class: "check_done" } %>
+    <% end %>
   <% end %>
 
   <span class = "task_title">
@@ -14,4 +13,4 @@
     <%= link_to subject_list_task_path(subject, list, task), class: 'delete', method: :delete, remote: true, data: { confirm: "Are you sure?"} do %>
   <% end %>
 <% end %>
-</p>
+</div>

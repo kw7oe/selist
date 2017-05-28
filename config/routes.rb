@@ -6,13 +6,14 @@ Rails.application.routes.draw do
   post 'sign_in', to: 'sessions#create'
   get 'sign_out', to: 'sessions#destroy', as: 'sign_out'
 
-  # Done
-  put 'task/done/:user_id/:task_id',to:'students#done'
-  
   root "static_pages#home"
   resources :users, only: [:new, :create, :edit]
   resources :teachers, except: [:new, :create, :edit]
-  resources :students, except: [:new, :create, :edit]
+  resources :students, except: [:new, :create, :edit] do 
+    member do 
+      put "done"
+    end
+  end
   resources :sessions
   resources :subjects do 
     resources :lists do 

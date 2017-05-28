@@ -20,20 +20,13 @@ document.addEventListener("turbolinks:load", function() {
     e.preventDefault();
     $(".dropdown").toggleClass("show");
   });
-
-  $(".check_done").click(function(e){
-      var parent=$(this).attr("task");
-      $("#task_"+parent).fadeOut();
-      var user=$(this).attr("user");
-      $.ajax({url:"/task/done/"+user+"/"+parent,method:"PUT"}).done(function(){
-          // $("#task_"+parent).fadeOut();
-      });
+  $("[data-behavior~=close_alert]").on("click", function(e) {
+    e.preventDefault();
+    close(e);
   });
-
-  $("[data-behavior~=close_alert]").on("click", function(event) {
-    event.preventDefault();
-    close(event);
-  });
+  $(".check_done").on("click", function(e) {
+    $(this).parent().submit();
+  })
 });
 
 function close(event) {
