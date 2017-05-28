@@ -2,8 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.tasks {
+  margin-bottom: 12px;
+}
+
 .delete {
-  color: #B3B3B3;
+  color: #b3b3b3;
 
   &:before {
     content: '\2715';

@@ -3,10 +3,10 @@
 </div>
 
 <div class = "flex-row-container">
-  <% @subject.lists.each do |list| %>
+  <% @subject.lists.each_with_index do |list, index| %>
     <div class = "col-3">
-    <div class = "box">
-      <%= render partial: list, locals: { subject: @subject } %>
+    <div class = "box" id = "<%= dom_id(list) %>">
+      <%= render partial: list, locals: { subject: @subject, last_index: true } %>
     </div>
     </div>
   <% end %>

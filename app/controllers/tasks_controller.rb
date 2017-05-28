@@ -8,10 +8,13 @@ class TasksController < ApplicationController
   def create
     @task = @list.tasks.create(task_params)
 
-    if @task.save
-      redirect_to @subject, notice: "Task added sucessfully"
-    else
-      render "new"
+    respond_to do |format|
+      if @task.save
+        format.html { redirect_to @subject, notice: "Task added sucessfully" }
+        format.js
+      else
+        format.html { render "new" }
+      end
     end
   end
 

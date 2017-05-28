@@ -1,18 +1,22 @@
 <div class = "col-3">
   <div class = "box" id = "<%= dom_id(subject) %>">
 
-    <div class = "header">
-      <h1><%= link_to subject.title, subject_path(subject) %></h1>
-      <%= link_to edit_subject_path(subject) do %>
-        Edit
-      <% end %>
-      <%= link_to subject_path(subject), remote: true, method: :delete, data: { confirm: "Are you sure?"} do %>
-        Delete
-      <% end %>
-    </div>
+    <% if current_user.is_teacher? %>
+      <div class = "header">
+        <h1><%= link_to subject.title, subject_path(subject) %></h1>
+        <%= link_to edit_subject_path(subject) do %>
+          Edit
+        <% end %>
+        <%= link_to subject_path(subject), remote: true, method: :delete, data: { confirm: "Are you sure?"} do %>
+          Delete
+        <% end %>
+      </div>
+    <% end %>
     
-    <% subject.lists.each do |list| %>
-      <%= render partial: list, locals: { subject: subject } %>
+    <% subject.lists.each_with_index do |list, index| %>
+      <div id = "<%= dom_id(list) %>">
+      <%= render partial: list, locals: { subject: subject, last_index: index == subject.lists.count - 1} %>
+      </div>
     <% end %>
   </div>
 </div>
