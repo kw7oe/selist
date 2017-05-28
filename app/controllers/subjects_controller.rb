@@ -1,6 +1,8 @@
 class SubjectsController < ApplicationController
   include UsersHelper
-  before_action :set_subject, only: [:show, :edit, :update, :destroy]
+  before_action :set_subject, 
+                only: [:show, :edit, :update, 
+                       :destroy, :add_students, :update_students]
   
   def new 
     @subject = Subject.new
@@ -38,13 +40,23 @@ class SubjectsController < ApplicationController
     end
   end
 
+  def add_students
+  end
+
+  def update_students
+    puts params[:subject][:users]
+    user = User.find(params[:subject][:users])
+    @subject.users.push(user)
+    redirect_to subject_path(@subject)
+  end
+
   private 
   def set_subject
     @subject = Subject.find(params[:id])
   end
 
   def subject_params
-    params.require(:subject).permit(:title, lists_attributes: [:title])
+    params.require(:subject).permit(:title)
   end
 
 end

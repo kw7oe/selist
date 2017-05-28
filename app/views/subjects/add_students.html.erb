@@ -1,0 +1,9 @@
+<div class = "col-5 margin-3.5 box single_box">
+  <h1>Add Students</h1>
+
+  <%= form_for @subject, url: update_students_subject_path(@subject), method: :put do |f| %>
+    <%= collection_select :subject, 
+        :users, Student.all, :id, :email %>
+    <%= f.submit class: "btn" %>
+  <% end %>
+</div>

@@ -20,6 +20,10 @@ Rails.application.routes.draw do
   resources :users 
   
   resources :subjects do 
+    member do 
+      get "add_students"
+      put "update_students"
+    end
     resources :lists do 
       resources :tasks 
     end

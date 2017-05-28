@@ -1,5 +1,7 @@
 class ListsController < ApplicationController
-  before_action :set_subject, only: [:new, :create]
+  before_action :set_subject
+  before_action :set_list, only: [:edit, :update, :destroy]
+ 
   def new
     @list = @subject.lists.build
   end
@@ -14,9 +16,34 @@ class ListsController < ApplicationController
     end
   end
 
+  def edit 
+  end
+
+  def update
+
+    if @list.update(list_params)
+      redirect_to subject_path(@subject) 
+    else
+      render "edit"
+    end
+  end
+
+  def destroy 
+    @list.destroy
+
+    respond_to do |format|
+      format.html { redirect_to subject_path(@subject) }
+      format.js
+    end
+  end
+
   private 
   def set_subject
     @subject = Subject.find(params[:subject_id])
+  end
+
+  def set_list
+    @list = List.find(params[:id])
   end
 
   def list_params
