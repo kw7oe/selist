@@ -14,6 +14,7 @@ class User < ApplicationRecord
             on: :create
 
   has_and_belongs_to_many :subjects
+  has_many :task_statuses, dependent: :delete_all
 	has_secure_password
 
   def self.inherited(child)

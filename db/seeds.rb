@@ -1,8 +1,17 @@
 d = Time.now.strftime("%B %d,%Y")
 
-student = Student.create(email: "choongkwern@hotmail.com", password: "password")
-student2 = Student.create(email: "student@example.com", password: "password")
-teacher = Teacher.create(email: "teacher@example.com", password: "password")
+student = Student.create(name: "Choong Kai Wern", 
+                         email: "choongkwern@hotmail.com", 
+                         password: "password",
+                         password_confirmation: "password")
+student2 = Student.create(name: "Peter Parker", 
+                         email: "student@example.com", 
+                         password: "password",
+                         password_confirmation: "password")
+teacher = Teacher.create(name: "Mehran Sahami", 
+                         email: "teacher@example.com", 
+                         password: "password",
+                         password_confirmation: "password")
 
 # Create Subjects
 teacher.subjects.create(title:"Software Engineering")

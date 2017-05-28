@@ -1,4 +1,4 @@
 class TaskStatus < ApplicationRecord
-	has_many :users
-  has_many :tasks
+	belongs_to :user
+  belongs_to :task
 end

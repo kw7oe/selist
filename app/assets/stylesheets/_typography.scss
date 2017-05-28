@@ -4,7 +4,7 @@ Typography
 
 a {
 	@include base-link();
-	@include link-color(#808080);
+	@include link-color($primary-color, $percentage: 10%);
 	font-family: $secondary-font;
 }
 

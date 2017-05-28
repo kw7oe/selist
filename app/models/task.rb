@@ -3,7 +3,7 @@ class Task < ApplicationRecord
   validates :title, presence: true
   
 	belongs_to :list
-	has_many :task_statuses
+	has_many :task_statuses, dependent: :delete_all
 
   def incompleted_task?(id)
     task_statuses.where(user_id: id).blank?
