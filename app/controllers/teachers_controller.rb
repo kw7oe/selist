@@ -1,6 +1,6 @@
 class TeachersController < ApplicationController
   
-  def show
+  def dashboard
     @teacher= Teacher.find(params[:id])
   end
 

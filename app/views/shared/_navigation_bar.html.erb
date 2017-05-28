@@ -8,14 +8,21 @@
     <div class="dash"></div>
   </div>
   <ul class="dropdown">
-    <li>About</li>
-    <li>Features</li>
+    
+    <% if should_display_about_and_features %>
+      <li>About</li>
+      <li>Features</li>
+    <% end %>
 
     <% if current_user %>
-    
-      <%= link_to user_dashboard_path(current_user) do %>
-        <li class="<%= "active" if controller.action_name == "show" %>" >Dashboard</li>
-      <% end %>
+      
+      <!-- Dashboard -->
+      <%= active_link_to user_dashboard_path(current_user), "dashboard", "Dashboard" %>
+
+      <!-- Profile -->
+      <%= active_link_to user_path(current_user), "show", "Profile" %>
+      
+      <!-- Sign Out -->
       <%= link_to session_path("current"), method: "delete" do %>
         <li>Sign Out</li>
       <% end %>

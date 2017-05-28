@@ -1,9 +1,9 @@
 class StudentsController < ApplicationController
   
-  def show
+  def dashboard
     @student= Student.find(params[:id])
   end
-  
+
   def done
     @record = TaskStatus.new
     @record.user_id = current_user.id

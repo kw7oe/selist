@@ -1,0 +1,20 @@
+<div class = "col-5 margin-3.5 box single_box">
+
+  <!-- Name -->
+  <% if @user.name? %>
+    <h1><%= @user.name %></h1>
+  <% else %>
+    <p>Name unavailable, 
+    <%= link_to "Edit your profile here", edit_user_path(current_user) %>
+    </p>
+  <% end %>
+
+  <h2>Subjects: </h2>
+  <ul class = "subjects">
+    <% @user.subjects.each do |subject| %>
+      <li><%= subject.title %></li>
+    <% end %>
+  </ul>
+
+</div>
+ 
