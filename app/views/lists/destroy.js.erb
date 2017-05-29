@@ -1,1 +1,5 @@
-$("#list_<%= @list.id %>").parent().remove()
+var $parent = $("#list_<%= @list.id %>").parent()
+$("#list_<%= @list.id %>").remove()
+if (!$.trim( $parent.html() ).length) {
+  $parent.remove()
+}

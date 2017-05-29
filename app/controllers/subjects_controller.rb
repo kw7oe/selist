@@ -2,7 +2,7 @@ class SubjectsController < ApplicationController
   include UsersHelper
   before_action :set_subject, 
                 only: [:show, :edit, :update, 
-                       :destroy, :add_students, :update_students]
+                       :destroy, :add_students]
   
   def new 
     @subject = Subject.new
@@ -25,7 +25,7 @@ class SubjectsController < ApplicationController
 
   def update
     if @subject.update(subject_params)
-      redirect_to user_dashboard_path(current_user)
+      redirect_to @subject
     else
       render "edit"
     end
@@ -43,20 +43,13 @@ class SubjectsController < ApplicationController
   def add_students
   end
 
-  def update_students
-    puts params[:subject][:users]
-    user = User.find(params[:subject][:users])
-    @subject.users.push(user)
-    redirect_to subject_path(@subject)
-  end
-
   private 
   def set_subject
     @subject = Subject.find(params[:id])
   end
 
   def subject_params
-    params.require(:subject).permit(:title)
+    params.require(:subject).permit(:title, user_ids: [])
   end
 
 end

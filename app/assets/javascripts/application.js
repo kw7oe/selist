@@ -27,6 +27,10 @@ document.addEventListener("turbolinks:load", function() {
   $(".check_done").on("click", function(e) {
     $(this).parent().submit();
   })
+  $('form').on("click", ".add_fields", function(e) {
+    $(this).before($(this).data('field'));  
+    e.preventDefault();
+  })
 });
 
 function close(event) {

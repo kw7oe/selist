@@ -28,4 +28,10 @@ module ApplicationHelper
     end
   end
 
+  # View Helper: Field
+  def link_to_add_field(name, association)
+    field = render(association.singularize + "_field")
+    link_to name, "#", class: "add_fields", data: {field: field}
+  end
+
 end

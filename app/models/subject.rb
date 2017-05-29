@@ -6,7 +6,7 @@ class Subject < ApplicationRecord
 	has_many :lists, dependent: :destroy
 	has_many :resources
 
-  accepts_nested_attributes_for :lists
+  accepts_nested_attributes_for :users
 
   def tasks
     lists.flatten_map { |list| list.tasks  }

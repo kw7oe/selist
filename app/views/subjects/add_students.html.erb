@@ -1,9 +1,19 @@
 <div class = "col-5 margin-3.5 box single_box">
-  <h1>Add Students</h1>
+  <h1>Students</h1>
 
-  <%= form_for @subject, url: update_students_subject_path(@subject), method: :put do |f| %>
-    <%= collection_select :subject, 
-        :users, Student.all, :id, :email %>
-    <%= f.submit class: "btn" %>
+  <%= form_for @subject do |f| %>
+
+    <%= hidden_field_tag "subject[user_ids][]", current_user.id %>
+    <%= hidden_field_tag "subject[user_ids][]", nil %>
+    <% Student.all.each do |student| %>
+      <div class = "form-group" id = "<%= dom_id(student) %>">
+      <%= check_box_tag "subject[user_ids][]", student.id, @subject.user_ids.include?(student.id), id: dom_id(student) %>
+      <%= student.name %>
+      </div>
+    <% end %>
+
+    <div class = "form-group">
+      <%= f.submit "Update Student Lists", class: "btn" %>
+    </div>
   <% end %>
 </div>
