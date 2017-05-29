@@ -1,0 +1,8 @@
+$("div.box .lists").append("\
+  <div class = 'col-6'>\
+  <div class = 'box' id = '<%= dom_id(@list) %>'>\
+    <%= j render partial: @list, locals: { subject: @subject, last_index: true } %>\
+  </div>\
+  </div>"
+)
+$('input#list_title').val("")

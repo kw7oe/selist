@@ -3,12 +3,12 @@
   <p>that you created</p>
 </div>
 
-<div class="flex-row-container">
+<div class="grid">
   <%= render partial: "users/subject_lists", 
              locals: { user: @teacher } %>
 
   
-  <div class = "col-3">
+  <div class = "grid-item">
   <div class = "box">
     <%= link_to "Add Subject", new_subject_path %>
   </div>

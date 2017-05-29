@@ -2,14 +2,14 @@ class SubjectsController < ApplicationController
   include UsersHelper
   before_action :set_subject, 
                 only: [:show, :edit, :update, 
-                       :destroy, :add_students]
+                       :destroy, :edit_students]
   
   def new 
     @subject = Subject.new
   end
 
   def create
-    @subject = current_user.subjects.create(subject_params)    
+    @subject = Subject.create(subject_params)    
     if @subject.save 
       redirect_to  @subject, notice: "#{@subject.title} created sucessfully"
     else
@@ -40,7 +40,7 @@ class SubjectsController < ApplicationController
     end
   end
 
-  def add_students
+  def edit_students
   end
 
   private 

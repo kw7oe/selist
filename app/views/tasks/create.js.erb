@@ -1,2 +1,3 @@
 $('div#<%= dom_id(@list) %> .tasks').append("<%= j render partial: @task, locals: { subject: @subject, list: @list } %>");
 $('div#<%= dom_id(@list) %> input#task_title').val("")
+$('.grid').masonry()

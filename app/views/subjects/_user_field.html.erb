@@ -1,4 +1,8 @@
-<div class = "form-group">
-  <%= label_tag "Student" %>
-  <%= text_field_tag "subjects_users[]"%>
-</div>
+<%= hidden_field_tag "subject[user_ids][]", current_user.id %>
+<%= hidden_field_tag "subject[user_ids][]", nil %>
+<% Student.all.each do |student| %>
+  <div class = "form-group" id = "<%= dom_id(student) %>">
+  <%= check_box_tag "subject[user_ids][]", student.id, subject.user_ids.include?(student.id), id: dom_id(student) %>
+  <%= student.name %>
+  </div>
+<% end %>

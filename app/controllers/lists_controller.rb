@@ -9,10 +9,14 @@ class ListsController < ApplicationController
   def create
     @list = @subject.lists.create(list_params)
 
-    if @list.save 
-      redirect_to subject_path(@subject), notice: "List created sucessfully"
-    else 
-      render "new"
+    respond_to do |format|
+
+      if @list.save 
+        format.html { redirect_to subject_path(@subject), notice: "List created sucessfully" }
+        format.js
+      else 
+        format.html { render "new" }
+      end
     end
   end
 

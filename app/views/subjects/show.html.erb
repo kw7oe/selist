@@ -6,6 +6,8 @@
 <div class = "flex-row-container">
   <div class = "col-8 box">
     <h2>Lists</h2>
+
+    <div class = "lists">
     <% @subject.lists.each_with_index do |list, index| %>
       <div class = "col-6">
       <div class = "box" id = "<%= dom_id(list) %>">
@@ -13,12 +15,13 @@
       </div>
       </div>
     <% end %>
+    </div>
     
-    <% if current_user.is_teacher? %>    
-      <div class = "col-6">
-      <div class = "box">
-      <%= link_to "Add List", new_subject_list_path(@subject) %>
-      </div>
+    <% if current_user.is_teacher? %>   
+      <div class = "col-6"> 
+      <%= form_for [@subject, List.new], remote: true do |f| %>
+        <%= f.text_field :title, placeholder: "Add List Here...", class: "form-control" %>
+      <% end %>
       </div>
     <% end %>
   </div>
@@ -28,7 +31,7 @@
     <div class = "box">
       <h2>Enrolled Students</h2>
 
-      <%= link_to "Edit", add_students_subject_path(@subject) %>
+      <%= link_to "Edit", edit_students_subject_path(@subject) %>
       
       <ul class = "students">
       <% @subject.users.each do |user| %>

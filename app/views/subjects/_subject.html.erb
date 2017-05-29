@@ -1,7 +1,6 @@
-<div class = "col-3">
+<div class = "grid-item">
   <div class = "box" id = "<%= dom_id(subject) %>">
-
-    
+  
       <div class = "header">        
         <h1><%= link_to subject.title, subject_path(subject) %></h1>
 
@@ -15,9 +14,14 @@
         <% end %>
       </div>
     
-    <% subject.lists.each_with_index do |list, index| %>
-      <div id = "<%= dom_id(list) %>">
-      <%= render partial: list, locals: { subject: subject, last_index: index == subject.lists.count - 1} %>
+    <% if subject.lists.any? %>
+      <% subject.lists.each_with_index do |list, index| %>
+        <div id = "<%= dom_id(list) %>">
+        <%= render partial: list, locals: { subject: subject, last_index: index == subject.lists.count - 1} %>
+        </div>
+      <% end %>
+    <% else %>
+      <div>
       </div>
     <% end %>
   </div>

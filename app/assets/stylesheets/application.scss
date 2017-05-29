@@ -116,6 +116,17 @@ hr {
 	}
 }		
 
+.grid {
+	width: 100%;
+}
+
+.grid-item {
+	width: (100% / 4.0);
+	padding-left: 6px;
+	padding-right: 6px;
+	margin-bottom: 12px;
+}
+
 @media (min-width: 750px) {
 	.feature {
 		flex-direction: row;

@@ -1,0 +1,12 @@
+<div class = "col-5 margin-3.5 box single_box">
+  <h1>Students</h1>
+
+  <%= form_for @subject do |f| %>
+
+    <%= render "user_field", subject: @subject %>
+
+    <div class = "form-group">
+      <%= f.submit "Update Student Lists", class: "btn" %>
+    </div>
+  <% end %>
+</div>

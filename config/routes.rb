@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   
   resources :subjects do 
     member do 
-      get "add_students"
+      get "edit_students"
     end
     resources :lists do 
       resources :tasks 
