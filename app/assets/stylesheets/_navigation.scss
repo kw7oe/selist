@@ -6,15 +6,12 @@
   color: white;
 
   ul {    
-    display: flex;
-    align-items: center;
-    
+    list-style-type: none;
     a {
       color: white;
     }
 
-    li {
-      display: flex;     
+    li {    
       font-family: $primary-font;   
       text-transform: uppercase;
 
@@ -39,10 +36,6 @@
 
 .dropdown {
   display: none;
-}
-
-.show {
-  display: block;
 }
 
 .dash {

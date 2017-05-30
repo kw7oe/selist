@@ -21,7 +21,7 @@ document.addEventListener("turbolinks:load", function() {
   // Dropdown For Mobile
   $(".dropdown-toggle").on("click", function(e) {
     e.preventDefault();
-    $(".dropdown").toggleClass("show");
+    $(this).siblings(".dropdown").toggleClass("show");
   });
 
   // Close Alert Box
@@ -34,6 +34,18 @@ document.addEventListener("turbolinks:load", function() {
   $(".check_done").on("click", function(e) {
     $(this).parent().submit();
   });
+
+  // Toggle Settings
+  $("[data-behavior~=toggle_settings]").on("click", function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    $(".dropdown_menu").removeClass("show");
+    $(this).siblings(".dropdown_menu").toggleClass("show");
+  })
+  $(window).on("click", function(e) {
+    e.preventDefault();
+    $(".dropdown_menu").removeClass("show");
+  })
 
   // Dynamically Add Field
   $('form').on("click", ".add_fields", function(e) {

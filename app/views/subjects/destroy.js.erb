@@ -1,2 +1,2 @@
-$("div#subject_<%= @subject.id %>.box ").parent().remove()
-$('.grid').masonry()
+$remove_item = $("div#subject_<%= @subject.id %>.box ").parent()
+$('.grid').masonry('remove', $remove_item).masonry()

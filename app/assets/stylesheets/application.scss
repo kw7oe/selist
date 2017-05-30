@@ -4,9 +4,11 @@
 @import "typography";
 @import "navigation";
 @import "main";
+@import "utils";
+@import "static_pages";
 @import "users";
-@import "students";
 @import "tasks";
+@import "font-awesome";
 
 body {
 	background-color: #F6F6F6;
@@ -19,133 +21,6 @@ hr {
   margin: 30px 0 40px 0;
 }
 
-// Home Page
-
-.jumbotron {
-	position: relative;
-	text-align: center;
-	width: 100%;
-	height: 100vh;
-
-	background-size: cover;
-
-	h1 {
-		font-size: 48px;
-	}
-
-	h2 {
-		font-size: 36px;
-	}
-
-	p {
-		font-size: 24px;
-	}
-}
-
-.main {
-	background-image: image-url("main.jpg");
-}
-
-.cta {
-	background-image: image-url("cta.jpg");	
-}
-
-.feature {
-	display: flex;
-	background-color: #FEFEFE;
-	flex-direction: column;
-
-	.center {
-		width: 60%;
-		color: white;
-	}
-
-	.image {
-		height: 100vh;
-		background-image: image-url("feature.jpg");
-		background-size: cover;
-		background-position: 50% 50%;
-	}
-
-}
-
-.single_box {
-	margin-top: 5%;
-}
-
-.box {
-	background: white;
-	border-radius: 4px;
-	padding: 24px 36px;
-	border: 1px solid #E6E6E6;
-
-	color: #4C4C4C;
-
-	h1 {
-		font-size: 24px;
-	}
-
-	h2 {
-		font-size: 20px;
-	}
-}
-
-#error_explanation {
-	color: $red;
-  ul {
-  	padding-left: 48px;
-  }
-  margin-bottom: 24px;
-}
-
-.field_with_errors {
-	color: $red;
-
-	.form-control {
-		border-color: $red;
-	}
-}
-
-.close-alert {
-	position: absolute;
-	right: 3%;
-
-	&:after {
-		content: '✕';			
-		color: white;
-	}
-}		
-
-.grid {
-	width: 100%;
-}
-
-.grid-item {
-	width: (100% / 4.0);
-	padding-left: 6px;
-	padding-right: 6px;
-	margin-bottom: 12px;
-}
-
-@media (min-width: 750px) {
-	.feature {
-		flex-direction: row;
-
-		.center {
-			color: black;
-		}
-
-		.image {
-			width: 40%;
-		}
-
-		.details {
-			width: 60%;
-			position: relative;
-		}
-	}
-	
-}
 
 
 

@@ -8,13 +8,18 @@
     <%= link_to "Edit your profile here", edit_user_path(current_user) %>
     </p>
   <% end %>
+  <%= link_to "Edit profile", edit_user_path(current_user) %>
 
   <h2>Subjects: </h2>
-  <ul class = "subjects">
-    <% @user.subjects.each do |subject| %>
-      <li><%= subject.title %></li>
-    <% end %>
-  </ul>
+  <% if @user.subjects.any? %>
+    <ul class = "subjects">
+      <% @user.subjects.each do |subject| %>
+        <li><%= subject.title %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No subject available.</p>
+  <% end %>
 
 </div>
  

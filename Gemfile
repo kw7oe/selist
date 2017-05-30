@@ -40,6 +40,8 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Hirb for better database table display in console
 gem 'hirb', '0.7.3'
 
+gem "font-awesome-rails"
+
 group :development, :test do
   gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

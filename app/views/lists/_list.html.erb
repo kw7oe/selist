@@ -1,13 +1,10 @@
-<h2><%= list.title %></h2>
+<div class = "header">
+  <h2><%= list.title %></h2>
 
-<% if current_user.is_teacher? %>
-  <%= link_to edit_subject_list_path(subject, list) do %>
-    Edit
+  <% if current_user.is_teacher? %>
+    <%= render "lists/settings", subject: subject, list: list %>
   <% end %>
-  <%= link_to subject_list_path(subject, list), remote: true, method: :delete, data: { confirm: "Are you sure?"} do %>
-    Delete
-  <% end %>
-<% end %>
+</div>
 
 <div class = "tasks">
 <% list.incompleted_tasks(current_user).each do |task| %>

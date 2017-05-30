@@ -2,20 +2,3 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.flex-row-container {
-  display: flex;
-  padding-left: 15px;
-  padding-right: 15px;
-  flex-wrap: wrap;
-
-  width: 100%;
-}
-
-.board {
-  width: 100% / 4;
-  min-height:70vh;    
-}
-
-.flexbox {
-    display:flex;
-}

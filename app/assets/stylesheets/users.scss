@@ -2,6 +2,87 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.flex-row-container {
+  display: flex;
+  padding-left: 15px;
+  padding-right: 15px;
+  flex-wrap: wrap;
+
+  width: 100%;
+}
+
+.board {
+  width: 100% / 4;
+  min-height:70vh;    
+}
+
+.flex {
+    display:flex;
+}
+
 ul.subjects {
   margin-left: 48px;
+}
+
+.grid {
+  width: 100%;
+}
+
+.grid-item {
+  width: (100% / 4.0);
+  padding-left: 6px;
+  padding-right: 6px;
+  margin-bottom: 12px;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+
+  h1, h2 {
+    flex-grow: 2;
+  }
+}
+
+.dropdown_menu {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.settings {
+  position: relative;
+
+
+  ul {
+    position: absolute;
+    z-index: 99;
+    background-color: white;
+    list-style-type: none;
+
+    li {
+      border-top: 1px solid #ccc;
+      border-left: 1px solid #ccc;
+      border-right: 1px solid #ccc;
+      padding: 6px 8px;
+
+      &:last-child {
+        border-bottom: 1px solid #ccc;
+      }
+    }
+  }
+}
+
+.icon {
+  &:before {
+    font-family: "FontAwesome";
+  }
+}
+
+a.settings_link {
+  &:before {
+    @extend .fa-ellipsis-h;
+  }
 }
