@@ -1,4 +1,5 @@
 module ApplicationHelper
+  include UsersHelper
 
   # View Helper: Brand Related
   def platform_name
@@ -32,6 +33,12 @@ module ApplicationHelper
   def link_to_add_field(name, association)
     field = render(association.singularize + "_field")
     link_to name, "#", class: "add_fields", data: {field: field}
+  end
+
+  # Controller Helper: Error Handling
+  def invalid_model(model_name)
+    flash.alert = "Invalid #{model_name}"
+    redirect_back(fallback_location: user_dashboard_path(current_user))
   end
 
 end

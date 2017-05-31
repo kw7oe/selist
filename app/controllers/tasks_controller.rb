@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  include ApplicationHelper
   before_action :set_list, :set_subject
 
   def new 
@@ -32,13 +33,13 @@ class TasksController < ApplicationController
   def set_subject
     @subject = Subject.find(params[:subject_id])
   rescue ActiveRecord::RecordNotFound
-    invalid_subject
+    invalid_model("subject")
   end
 
   def set_list
     @list = List.find(params[:list_id])
   rescue ActiveRecord::RecordNotFound
-    invalid_list
+    invalid_model("list")
   end
 
   def task_params

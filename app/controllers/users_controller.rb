@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
-  include UsersHelper
+  include ApplicationHelper
+
   before_action :set_user, only: [:show, :edit, :update]
   before_action :check_authorization 
+  rescue_from ActiveRecord::RecordNotFound, with: :invalid_user
 
   def new
     @user = User.new
@@ -42,8 +44,6 @@ class UsersController < ApplicationController
   private
   def set_user
     @user = User.find(params[:id])
-  rescue ActiveRecord::RecordNotFound
-    invalid_user
   end
 
   def user_params
@@ -58,11 +58,8 @@ class UsersController < ApplicationController
     end
   end
 
-  def invalid_user
-    flash.alert = "Invalid user"
-    redirect_back(fallback_location: user_dashboard_path(current_user))
-  end
-
-  
+  def invalid_user 
+    invalid_model("user")
+  end 
 
 end
