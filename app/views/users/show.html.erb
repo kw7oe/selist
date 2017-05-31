@@ -1,6 +1,7 @@
-<div class = "col-5 margin-3.5 box single_box">
+<div class = "col-5 margin-3.5 box box-panel single-box">
 
   <!-- Name -->
+  <div class = "header blue-header">
   <% if @user.name? %>
     <h1><%= @user.name %></h1>
   <% else %>
@@ -9,7 +10,9 @@
     </p>
   <% end %>
   <%= link_to "Edit profile", edit_user_path(current_user) %>
+  </div>
 
+  <div class = "section">
   <h2>Subjects: </h2>
   <% if @user.subjects.any? %>
     <ul class = "subjects">
@@ -20,6 +23,7 @@
   <% else %>
     <p>No subject available.</p>
   <% end %>
+  </div>
 
 </div>
  

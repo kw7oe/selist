@@ -38,9 +38,9 @@ document.addEventListener("turbolinks:load", function() {
   // Toggle Settings
   $("[data-behavior~=toggle_settings]").on("click", function(e) {
     e.preventDefault();
-    var $target_dropdown_menu =  $(this).siblings(".dropdown_menu");
+    var $target_dropdown_menu =  $(this).siblings(".dropdown-menu");
 
-    $(".dropdown_menu").each(function() {
+    $(".dropdown-menu").each(function() {
       var $this = $(this);
       if ((!$this.is($target_dropdown_menu))) {
         $this.removeClass("show");
@@ -51,7 +51,7 @@ document.addEventListener("turbolinks:load", function() {
     e.stopPropagation();
   })
   $(window).on("click", function(e) {
-    $(".dropdown_menu").removeClass("show");
+    $(".dropdown-menu").removeClass("show");
   })
 
   // Dynamically Add Field

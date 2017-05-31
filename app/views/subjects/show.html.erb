@@ -26,21 +26,5 @@
     <% end %>
   </div>
 
-  <% if current_user.is_teacher? %>
-  <div class = "col-4">
-    <div class = "box">
-      <h2>Enrolled Students</h2>
-
-      <%= link_to "Edit", edit_students_subject_path(@subject) %>
-      
-      <ul class = "students">
-      <% @subject.users.each do |user| %>
-        <% if user.is_student? %>
-          <li><%= user.name %></li>
-        <% end %>
-      <% end %>
-     </ul>
-    </div>
-  </div>
-  <% end %>
+  <%= render "enrolled_students", subject: @subject %>
 </div>

@@ -9,6 +9,14 @@
 .delete {
   color: #b3b3b3;
 
+  &:visited {
+    color: #b3b3b3;
+  }
+
+  &:hover {
+    color: #808080;
+  }
+  
   &:before {
     content: '\2715';
   }
@@ -20,6 +28,7 @@
 
 .task_title {
   flex-grow: 2;
+  line-height: 1.4;
 }
 
 [id^="task_"] {
