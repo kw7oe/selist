@@ -1,4 +1,4 @@
-class StudentsController < ApplicationController
+class StudentsController < UsersController
   
   def dashboard
     @student= Student.find(params[:id])

@@ -2,8 +2,7 @@ class SubjectsController < ApplicationController
   include UsersHelper
   before_action :set_subject, 
                 only: [:show, :edit, :update, 
-                       :destroy, :edit_students]
-  
+                       :destroy, :edit_students]  
   def new 
     @subject = Subject.new
   end
@@ -46,10 +45,17 @@ class SubjectsController < ApplicationController
   private 
   def set_subject
     @subject = Subject.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    invalid_subject
   end
 
   def subject_params
     params.require(:subject).permit(:title, user_ids: [])
+  end
+
+  def invalid_subject
+    flash.alert = "Invalid user"
+    redirect_back user_dashboard_path(current_user)
   end
 
 end

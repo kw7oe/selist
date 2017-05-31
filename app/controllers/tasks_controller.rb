@@ -31,10 +31,14 @@ class TasksController < ApplicationController
   private
   def set_subject
     @subject = Subject.find(params[:subject_id])
+  rescue ActiveRecord::RecordNotFound
+    invalid_subject
   end
 
   def set_list
     @list = List.find(params[:list_id])
+  rescue ActiveRecord::RecordNotFound
+    invalid_list
   end
 
   def task_params

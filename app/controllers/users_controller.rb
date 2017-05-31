@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
+  include UsersHelper
   before_action :set_user, only: [:show, :edit, :update]
+  before_action :check_authorization 
 
   def new
     @user = User.new
@@ -18,7 +20,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to root_url, notice: "Thank you for signing up!"
+      redirect_to user_dashboard_path(@user), notice: "Thank you for signing up!"
     else
       render "new"
     end
@@ -40,10 +42,27 @@ class UsersController < ApplicationController
   private
   def set_user
     @user = User.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    invalid_user
   end
 
   def user_params
     params.require(:user).permit(:email, :name, :password, :password_confirmation)
   end
+
+  def check_authorization 
+    @user = User.find(params[:id])
+    if current_user != @user 
+      flash.alert = "Oops, you are not allowed to access the page."
+      redirect_back(fallback_location: user_dashboard_path(current_user))
+    end
+  end
+
+  def invalid_user
+    flash.alert = "Invalid user"
+    redirect_back(fallback_location: user_dashboard_path(current_user))
+  end
+
+  
 
 end

@@ -1,6 +1,7 @@
 class ListsController < ApplicationController
+  include UsersHelper
   before_action :set_subject
-  before_action :set_list, only: [:edit, :update, :destroy]
+  before_action :set_list, only: [:edit, :update, :destroy]  
  
   def new
     @list = @subject.lists.build
@@ -44,14 +45,19 @@ class ListsController < ApplicationController
   private 
   def set_subject
     @subject = Subject.find(params[:subject_id])
+  rescue ActiveRecord::RecordNotFound
+    invalid_subject
   end
 
   def set_list
     @list = List.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    invalid_list
   end
 
   def list_params
     params.require(:list).permit(:title)
   end
+
 
 end
