@@ -38,12 +38,19 @@ document.addEventListener("turbolinks:load", function() {
   // Toggle Settings
   $("[data-behavior~=toggle_settings]").on("click", function(e) {
     e.preventDefault();
+    var $target_dropdown_menu =  $(this).siblings(".dropdown_menu");
+
+    $(".dropdown_menu").each(function() {
+      var $this = $(this);
+      if ((!$this.is($target_dropdown_menu))) {
+        $this.removeClass("show");
+      }
+    })
+
+    $target_dropdown_menu.toggleClass("show");    
     e.stopPropagation();
-    $(".dropdown_menu").removeClass("show");
-    $(this).siblings(".dropdown_menu").toggleClass("show");
   })
   $(window).on("click", function(e) {
-    e.preventDefault();
     $(".dropdown_menu").removeClass("show");
   })
 

@@ -1,22 +1,24 @@
 <div class = "grid-item">
-  <div class = "box" id = "<%= dom_id(subject) %>">
+  <div class = "box box-panel" id = "<%= dom_id(subject) %>">
   
-      <div class = "header">        
-        <h1><%= link_to subject.title, subject_path(subject) %></h1>
-        <% if current_user.is_teacher? %>
-          <%= render "subjects/settings", subject: subject %>
-        <% end %>
-      </div>
+    <div class = "header blue-header">        
+      <h1><%= link_to subject.title, subject_path(subject) %></h1>
+      <% if current_user.is_teacher? %>
+        <%= render "subjects/settings", subject: subject %>
+      <% end %>
+    </div>
     
-    <% if subject.lists.any? %>
-      <% subject.lists.each_with_index do |list, index| %>
-        <div id = "<%= dom_id(list) %>">
-        <%= render partial: list, locals: { subject: subject, last_index: index == subject.lists.count - 1} %>
+    <div class = "section">
+      <% if subject.lists.any? %>
+        <% subject.lists.each_with_index do |list, index| %>
+          <div id = "<%= dom_id(list) %>">
+          <%= render partial: list, locals: { subject: subject, last_index: index == subject.lists.count - 1} %>
+          </div>
+        <% end %>
+      <% else %>
+        <div>
         </div>
       <% end %>
-    <% else %>
-      <div>
-      </div>
-    <% end %>
+    </div>
   </div>
 </div>
