@@ -14,16 +14,10 @@ teacher = Teacher.create(name: "Mehran Sahami",
                          password_confirmation: "password")
 
 # Create Subjects
-teacher.subjects.create(title:"Software Engineering")
-teacher.subjects.create(title:"Artificial Intelligence")
-teacher.subjects.create(title:"Data Structure & Algorithm")
-teacher.subjects.create(title:"Communication Skill")
-
-# Get Subjects
-subject = teacher.subjects.first
-subject1 = teacher.subjects.where(title:"Artificial Intelligence").first
-subject2 = teacher.subjects.where(title:"Data Structure & Algorithm").first
-subject3 = teacher.subjects.where(title:"Communication Skill").first
+subject  = teacher.subjects.create(title: "Software Engineering")
+subject1 = teacher.subjects.create(title: "Artificial Intelligence")
+subject2 = teacher.subjects.create(title: "Data Structure & Algorithm")
+subject3 = teacher.subjects.create(title: "Communication Skill")
 
 # Insert list for each subject
 subject.lists.create(title: d)
