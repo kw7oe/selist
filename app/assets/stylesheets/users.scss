@@ -78,7 +78,6 @@ ul.subjects {
 .settings {
   position: relative;
 
-
   ul {
     position: absolute;
     z-index: 99;
@@ -98,6 +97,13 @@ ul.subjects {
   }
 }
 
+.absolute-settings {
+  position: absolute;
+
+  top: 4%;
+  right: 2%;
+}
+
 .icon {
   &:before {
     font-family: "FontAwesome";
@@ -107,5 +113,11 @@ ul.subjects {
 a.settings-link {
   &:before {
     @extend .fa-ellipsis-h;
+  }
+}
+
+a.gear-settings-link {
+  &:before {
+    @extend .fa-gear;
   }
 }

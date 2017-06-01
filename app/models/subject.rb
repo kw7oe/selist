@@ -13,4 +13,12 @@ class Subject < ApplicationRecord
     lists.flatten_map { |list| list.tasks  }
   end
 
+  def unhidden_lists
+    lists.unhidden
+  end
+
+  def hidden_lists
+    lists.hidden 
+  end
+
 end

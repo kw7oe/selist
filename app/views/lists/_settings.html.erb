@@ -1,7 +1,10 @@
-<div class = "settings">
-  <a class = "icon settings-link" data-behavior="toggle_settings"></a>
-  <ul class = "dropdown-menu">
-    <li><%= link_to "Edit", edit_subject_list_path(subject, list) %></li>
-    <li><%= link_to "Delete", subject_list_path(subject, list), remote: true, method: :delete, data: { confirm: "Are you sure?"} %></li>
-  </ul>
-</div>
+<% if current_user.is_teacher? %>
+  <div class = "settings">
+    <a class = "icon settings-link" data-behavior="toggle_settings"></a>
+    <ul class = "dropdown-menu">
+      <li><%= link_to "Edit List", edit_subject_list_path(subject, list) %></li>
+      <li><%= link_to "Delete List", subject_list_path(subject, list), remote: true, method: :delete, data: { confirm: "Are you sure?"} %></li>
+      <%= render "lists/hide_link", subject: subject, list: list %>
+    </ul>
+  </div>
+<% end %>

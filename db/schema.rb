@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170531080347) do
+ActiveRecord::Schema.define(version: 20170601071149) do
 
   create_table "lists", force: :cascade do |t|
     t.integer  "subject_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "title"
+    t.boolean  "is_hidden",  default: false
     t.index ["subject_id"], name: "index_lists_on_subject_id"
   end
 

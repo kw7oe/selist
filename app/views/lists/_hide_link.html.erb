@@ -1,0 +1,7 @@
+<li>
+  <% unless list.is_hidden %>
+    <%= link_to "Hide List", subject_list_path(subject, list, list: {is_hidden: true}), method: :put %>
+  <% else %>
+    <%= link_to "Unhide List", subject_list_path(subject, list, list: {is_hidden: false}), method: :put %>
+  <% end %>
+</li>

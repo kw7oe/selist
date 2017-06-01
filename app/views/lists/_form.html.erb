@@ -16,6 +16,11 @@
     <%= f.text_field :title, class: "form-control" %>
   </div>
 
+  <div class = "form-group">
+    <%= f.check_box :is_hidden %>    
+    <%= f.label :is_hidden, "Hide from students" %>
+  </div>
+
   <div class="form-group">
     <%= f.submit class: "btn" %>
   </div>

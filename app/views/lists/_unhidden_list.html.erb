@@ -1,0 +1,12 @@
+<% if subject.unhidden_lists.any? %>
+  <% subject.unhidden_lists.each do |list| %>
+    <%= render partial: list, locals: { subject: subject } %>
+  <% end %>
+<% else %>
+  <p>
+    No lists available.
+    <% if current_user.is_teacher? %>
+      <%= link_to "Add here", new_subject_list_path(subject) %>
+    <% end %>
+  </p>
+<% end %>
