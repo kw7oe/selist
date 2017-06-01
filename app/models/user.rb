@@ -7,11 +7,14 @@ class User < ApplicationRecord
   validates :email, presence: true, 
                     length: { maximum: 250 },
                     format: { with: VALID_EMAIL_REGEX },
-                    uniqueness: { case_sensitive: false }  
-  validates :password, :password_confirmation, 
-            presence: true, 
-            length: { minimum: 6 },
-            on: :create
+                    uniqueness: { case_sensitive: false } 
+
+  validates :password, presence: true, length: { minimum: 6 }, on: :create
+  validates :password_confirmation, presence: true, on: :create
+
+  validates :password, presence: true, length: { minimum: 6 }, on: :update, if: :password_digest_changed?
+  validates :password_confirmation, presence: true, on: :update, if: :password_digest_changed?
+
 
   has_many :subjects_users
   has_many :subjects, through: :subjects_users
@@ -34,5 +37,6 @@ class User < ApplicationRecord
   def is_student?
     false
   end
+
 
 end

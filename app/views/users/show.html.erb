@@ -2,14 +2,14 @@
 
   <!-- Name -->
   <div class = "header blue-header">
-  <% if @user.name? %>
-    <h1><%= @user.name %></h1>
-  <% else %>
-    <p>Name unavailable, 
-    <%= link_to "Edit your profile here", edit_user_path(current_user) %>
-    </p>
-  <% end %>
-  <%= link_to "Edit profile", edit_user_path(current_user) %>
+    <% if @user.name? %>
+      <h1><%= @user.name %></h1>
+    <% else %>
+      <p>Name unavailable, 
+      <%= link_to "Edit your profile here", edit_user_path(current_user) %>
+      </p>
+    <% end %>
+    <%= render "settings" %>
   </div>
 
   <div class = "section">

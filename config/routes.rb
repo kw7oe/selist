@@ -17,7 +17,12 @@ Rails.application.routes.draw do
   put "/students/:id/done(.:format)", to: 'students#done', as: "done_student"
 
   resources :sessions
-  resources :users 
+  resources :users  do 
+    member do 
+      get "edit_password"
+      patch "update_password"
+    end
+  end
   
   resources :subjects do 
     member do 

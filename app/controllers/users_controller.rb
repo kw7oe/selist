@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   include ApplicationHelper
 
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :edit_password, :update_password]
   before_action :check_authorization 
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_user
 
@@ -32,13 +32,27 @@ class UsersController < ApplicationController
   end
 
   def update 
-
     if @user.update(user_params)
-      redirect_to @user
+      redirect_to @user, notice: "Profile updated succesfully"
     else 
       render "edit"
     end
+  end
 
+  def edit_password
+  end
+
+  def update_password
+    if @user.authenticate(params[:user][:old_password]) 
+      if @user.update(user_params)
+        redirect_to @user, notice: "Password changed succesfully"
+      else
+        render "edit_password"
+      end
+    else
+      flash.now.alert = "Invalid Password"
+      render "edit_password"
+    end
   end
 
   private
