@@ -1,0 +1,26 @@
+<% if subject.unhidden_lists.any? %>
+  <% subject.unhidden_lists.each do |list| %>
+    <div class = "col-3">
+
+      <div class = "lists box box-panel">
+
+        <div class = "header blue-header">   
+          <h2><%= list.title %></h2>      
+        </div>
+
+        <div class = "section">
+          <div class = "tasks">
+            <% list.incompleted_tasks(current_user).each do |task| %>
+              <%= render partial: task, locals: { subject: subject, list: list } %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  <% end %>
+<% else %>
+  <div class = "col-6 margin-3 center-block">
+  <p>No lists available.</p>
+  </div>
+<% end %>

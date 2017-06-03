@@ -1,15 +1,26 @@
 <div class = "grid-item">
   <div class = "box box-panel" id = "<%= dom_id(subject) %>">  
-    <div class = "header blue-header">        
+    <div class = "header blue-header with_hover">        
       <h1><%= link_to subject.title, subject_path(subject) %></h1>
       <%= render "subjects/settings", subject: subject %>
     </div>
     
     <div class = "section">
       <!-- Unhidden List -->
-      <%= render "lists/unhidden_list", subject: subject %>
+      <div class = "<%= "box" if current_user.is_teacher? %>">
+        <% if current_user.is_teacher? %>
+          <h2>List(s)</h2>
+        <% end %>
+        <%= render "lists/unhidden_list", subject: subject %>
+      </div>
+      <br>
       <!-- Hidden List -->
-      <%= render "lists/hidden_list", subject: subject %>
+      <% if current_user.is_teacher? %>
+      <div class = "box">
+        <h2>Hidden List(s)</h2>
+        <%= render "lists/hidden_list", subject: subject %>
+      </div>
+      <% end %>
     </div>
   </div>
 </div>

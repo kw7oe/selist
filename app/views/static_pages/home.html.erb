@@ -2,10 +2,11 @@
   <div class = "center">
     <h1><%= platform_name %></h1>
     <p><%= platform_description %></p>
+    <%= link_to "Sign Up Now", new_user_path, class: 'btn' %>
   </div>
 </div>
 
-<div class = "jumbotron">
+<div class = "jumbotron" id = "feature">
   <div class = "feature">
     <!-- Side Image -->
     <div class = "image">
@@ -25,6 +26,6 @@ been easier</p>
   <div class = "center">
     <h1>Plan for your students</h1>
     <p>and help them with their studies</p>
-    <%= link_to "Get Started", "#" , class: "btn" %>
+    <%= link_to "Get Started", new_user_path, class: "btn" %>
   </div>
 </div>

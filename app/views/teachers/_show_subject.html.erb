@@ -1,0 +1,23 @@
+<div class = "col-4">
+  <div class = "lists box box-panel">
+    <div class = "header blue-header">   
+      <h2>List(s)</h2>      
+    </div>
+    <div class = "section">
+      <%= render "lists/unhidden_list", subject: @subject %> 
+    </div>
+  </div>
+</div>
+
+<div class = "col-4">
+  <div class = "lists box box-panel">
+    <div class = "header blue-header"> 
+      <h2>Hidden List(s)</h2>      
+    </div>
+    <div class = "section">
+      <%= render "lists/hidden_list", subject: @subject %>
+    </div>
+  </div>
+</div>
+
+<%= render "enrolled_students", subject: @subject %>

@@ -1,6 +1,6 @@
 <div id="<%= dom_id(task) %>">
   <% if current_user.is_student? %>
-    <%= form_for(task, url: done_student_url(task.id), method: :put, remote: true) do %>
+    <%= form_for(task, url: done_student_url(task.id), method: :put) do %>
       <%= check_box_tag "task_id", task.id, false, { class: "check_done" } %>
     <% end %>
   <% end %>

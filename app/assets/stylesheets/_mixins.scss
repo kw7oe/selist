@@ -68,12 +68,12 @@
 }
 
 // Alert
-@mixin base-alert($border-radius: 8px) {
-	@include base-label($border-radius);
+@mixin base-alert {
+	@include base-label(0px);
 	display: block;
 	padding: 12px 16px;
-  width: 96%;
-  margin: 2%;
+  width: 100%;
+  margin: 0;
 }
 
 // Form

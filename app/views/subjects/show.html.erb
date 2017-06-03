@@ -2,32 +2,11 @@
   <h1><%= @subject.title %></h1>
 </div>
 
-
 <div class = "flex-row-container">
-  <div class = "col-8 box">
-
-    <% if current_user.is_teacher? %>
-      <div class = "settings absolute-settings">
-        <a class = "icon gear-settings-link" data-behavior="toggle_settings"></a>
-        <ul class = "dropdown-menu">
-          <li><%= link_to "Add List", new_subject_list_path(@subject) %></li>
-          <li><%= link_to "Edit Subject", edit_subject_path(@subject) %></li>
-          <li><%= link_to "Delete Subject", subject_path(@subject), method: :delete, data: { confirm: "Are you sure?"} %></li>
-        </ul>
-      </div>
-    <% end %>
-
-    <div class = "lists">
-      <div class = "col-6">
-        <h2>List(s)</h2>
-        <%= render "lists/unhidden_list", subject: @subject %> 
-      </div>
-
-      <div class = "col-6">
-        <%= render "lists/hidden_list", subject: @subject %>
-      </div>
-    </div>
-  </div>
-
-  <%= render "enrolled_students", subject: @subject %>
+  <% if current_user.is_teacher? %>
+    <%= render "teachers/show_subject", subject: @subject %>
+  <% else %>
+    <%= render "students/show_subject", subject: @subject %>
+  <% end %>
 </div>
+

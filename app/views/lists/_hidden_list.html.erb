@@ -1,6 +1,9 @@
 <% if current_user.is_teacher? && subject.hidden_lists.any? %>
-  <h2>Hidden List(s)</h2>
   <% subject.hidden_lists.each do |list| %>
     <%= render partial: list, locals: { subject: subject } %>
   <% end %>
+<% else %>
+  <p>
+    No hidden lists available.
+  </p>
 <% end %>

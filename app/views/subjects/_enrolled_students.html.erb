@@ -1,19 +1,21 @@
 <% if current_user.is_teacher? %>
 <div class = "col-4">
-  <div class = "box">
-
-    <div class = "header">
+  <div class = "box box-panel">
+    <div class = "header blue-header">
       <h2>Enrolled Students</h2>
       <%= link_to "Edit", edit_students_subject_path(subject) %>
     </div>
-    <br>
-    <ul class = "students">
-      <% subject.users.each do |user| %>
-        <% if user.is_student? %>
-          <li><%= user.name %></li>
+
+    <div class = "section">
+      <ul class = "students subjects">
+        <% subject.users.each do |user| %>
+          <% if user.is_student? %>
+            <li><%= user.name %></li>
+          <% end %>
         <% end %>
-      <% end %>
-    </ul>
+      </ul>
+    </div>
+
   </div>
 </div>
 <% end %>
