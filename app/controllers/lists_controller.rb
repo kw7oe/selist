@@ -27,7 +27,7 @@ class ListsController < ApplicationController
   def update
 
     if @list.update(list_params)
-      redirect_to subject_path(@subject) 
+      redirect_back(fallback_location: subject_path(@subject))
     else
       render "edit"
     end
