@@ -7,7 +7,7 @@
     </div>
 
     <div class = "section">
-      <ul class = "students subjects">
+      <ul class = "students">
         <% subject.users.each do |user| %>
           <% if user.is_student? %>
             <li><%= user.name %></li>

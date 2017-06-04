@@ -46,11 +46,17 @@ Subject.all.each do |subject|
   end
 end
 
-Subject.all.each do |subject|
-  rand(1...100).times do 
-    subject.users.push(User.find(rand(2..100)))
+Student.all.each do |student|
+  rand(1...5).times do 
+    Subject.find(rand(1..5)).users.push(student)
+  end
+
+  rand(1...50).times do 
+    student.mark_task_done(Task.ids.sample).save
   end
 end
+
+
 
 
 

@@ -9,6 +9,10 @@ class Subject < ApplicationRecord
 
   accepts_nested_attributes_for :users
 
+  def students 
+    users.where(type: "Student")
+  end
+
   def tasks
     lists.flatten_map { |list| list.tasks  }
   end

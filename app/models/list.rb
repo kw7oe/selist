@@ -8,8 +8,8 @@ class List < ApplicationRecord
   scope :unhidden, -> { where(is_hidden: false) }
   scope :hidden, -> { where(is_hidden: true) }
 
-  def incompleted_tasks(id)
-    tasks.select { |task| task.incompleted_task?(id) }
+  def incompleted_tasks(user_id)
+    tasks.select { |task| task.incompleted_task?(user_id) }
   end
   
 end

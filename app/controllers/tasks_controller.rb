@@ -38,7 +38,7 @@ class TasksController < ApplicationController
   def destroy 
     @task.destroy
     respond_to do |format|
-      format.html { redirect_to(:back) }
+      format.html { redirect_to @subject }
       format.js
     end
   end

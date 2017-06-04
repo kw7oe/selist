@@ -1,4 +1,4 @@
-<div class = "col-5 margin-3.5 box box-panel single-box">
+<div class = "col-7 margin-2.5 box box-panel single-box">
 
   <!-- Name -->
   <div class = "header blue-header">
@@ -7,6 +7,27 @@
   </div>
 
   <div class = "section">
+    <div class = "col-6">
+      <h2>Completed Students
+          (<%= @task.completed_students_count %>)
+      </h2>
+      <ul class = "students">
+      <% @task.completed_students.each do |student| %>
+        <li><%= student.name %></li>
+      <% end %>
+      </ul>
+    </div>
+
+    <div class = "col-6">
+      <h2>Students in Progress
+          (<%= @task.incompleted_students_count %>)
+      </h2>
+      <ul class = "students">
+      <% @task.incompleted_students.each do |student| %>
+        <li><%= student.name %></li>
+      <% end %>
+      </ul>
+    </div>
   </div>
 
 </div>
