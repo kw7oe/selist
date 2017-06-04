@@ -2,7 +2,8 @@ class ListsController < ApplicationController
   include ApplicationHelper
   before_action :set_subject
   before_action :set_list, only: [:edit, :update, :destroy]  
- 
+  before_action :check_is_teacher
+
   def new
     @list = @subject.lists.build
   end

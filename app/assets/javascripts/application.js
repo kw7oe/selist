@@ -17,6 +17,7 @@
 //= require masonry.pkgd.min
 
 document.addEventListener("turbolinks:load", function() {
+  setTimeout("$('.alert').fadeOut('slow')", 5000);
 
   // Dropdown For Mobile
   $(".dropdown-toggle").on("click", function(e) {

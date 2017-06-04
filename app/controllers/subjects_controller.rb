@@ -3,7 +3,9 @@ class SubjectsController < ApplicationController
   
   before_action :set_subject, 
                 only: [:show, :edit, :update, 
-                       :destroy, :edit_students]  
+                       :destroy, :edit_students] 
+  before_action :check_is_teacher, except: [:show]
+
   def new 
     @subject = Subject.new
   end
@@ -53,6 +55,8 @@ class SubjectsController < ApplicationController
   def subject_params
     params.require(:subject).permit(:title, user_ids: [])
   end
+
+  
 
 
 end

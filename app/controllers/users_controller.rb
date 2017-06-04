@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   include ApplicationHelper
 
   before_action :set_user, only: [:show, :edit, :update, :edit_password, :update_password]
-  before_action :check_authorization, except: [:create, :new, :done]
+  before_action :check_authorization, except: [:create, :new, :done, :show]
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_user
 
   def new

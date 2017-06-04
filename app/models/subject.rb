@@ -1,5 +1,5 @@
 class Subject < ApplicationRecord
-
+  default_scope { order(:created_at => :desc) } 
   validates :title, presence: true
   
   has_many :subjects_users
@@ -11,6 +11,10 @@ class Subject < ApplicationRecord
 
   def students 
     users.where(type: "Student")
+  end
+
+  def teacher 
+    users.where(type: "Teacher").first
   end
 
   def tasks

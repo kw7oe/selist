@@ -1,5 +1,16 @@
 <div class = "container center-block with-top-margin">
   <h1><%= @subject.title %></h1>
+  <p>thought by: 
+    <%= link_to @subject.teacher.name, @subject.teacher %>  
+  </p>
+
+  <% if current_user.is_teacher? %>
+    <ul class = "menu">
+    <li><%= link_to "Add List", new_subject_list_path(@subject) %></li>
+    <li><%= link_to "Edit Subject", edit_subject_path(@subject) %></li>
+    <li><%= link_to "Delete Subject", subject_path(@subject), method: :delete, data: { confirm: "Are you sure?" } %></li>
+    </ul>
+  <% end %>
 </div>
 
 <div class = "flex-row-container">

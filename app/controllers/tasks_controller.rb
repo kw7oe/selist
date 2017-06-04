@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   include ApplicationHelper
   before_action :set_list, :set_subject
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-
+  before_action :check_is_teacher
   def new 
     @task = @list.tasks.build
   end

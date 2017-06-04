@@ -16,6 +16,24 @@ ul.subjects, ul.students {
   margin-left: 48px;
 }
 
+ul.menu {
+  list-style-type: none;
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 4px;  
+  background-color: white; 
+
+  li {
+    flex-grow: 1;
+    padding: 6px 8px;
+    border-right: 1px solid #ccc;
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+
+}
 
 // Dashboard
 .box-panel {

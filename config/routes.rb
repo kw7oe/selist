@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'sign_out', to: 'sessions#destroy', as: 'sign_out'
 
   # Teachers Custom Routes
-  get "/teachers/:id/dashboard(.:format)", to: 'teachers#dashboard', as: "dashboard_teacher"
+  get "/lecturers/:id/dashboard(.:format)", to: 'teachers#dashboard', as: "dashboard_teacher"
   
   # Students Custom Routes
   get "/students/:id/dashboard(.:format)", to: 'students#dashboard', as: "dashboard_student"
