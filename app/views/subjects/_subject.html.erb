@@ -7,19 +7,16 @@
     
     <div class = "section">
       <!-- Unhidden List -->
-      <div class = "<%= "box" if current_user.is_teacher? %>">
         <% if current_user.is_teacher? %>
-          <h2>List(s)</h2>
+          <h2 class = "green">List(s)</h2>
         <% end %>
-        <%= render "lists/unhidden_list", subject: subject %>
-      </div>
-      <br>
+        <%= render "lists/unhidden_list", subject: subject, add_task: false %>
+      
       <!-- Hidden List -->
       <% if current_user.is_teacher? %>
-      <div class = "box">
-        <h2>Hidden List(s)</h2>
-        <%= render "lists/hidden_list", subject: subject %>
-      </div>
+      <hr>
+        <h2 class = "red">Hidden List(s)</h2>
+        <%= render "lists/hidden_list", subject: subject, add_task: false %>
       <% end %>
     </div>
   </div>

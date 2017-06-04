@@ -1,0 +1,9 @@
+<div class = "tasks">
+  <% if list.incompleted_tasks(current_user).any? %>
+    <% list.incompleted_tasks(current_user).each do |task| %>
+      <%= render partial: task, locals: { subject: subject, list: list } %>
+    <% end %>
+  <% else %>
+    <p class = "green">Congratulations, you have done all the tasks here.</p>
+  <% end %>
+</div>

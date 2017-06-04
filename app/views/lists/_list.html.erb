@@ -1,16 +1,12 @@
 <div id = "<%= dom_id(list) %>">
   <div class = "header">
-    <h2><%= list.title %></h2>
+    <h4><%= list.title %></h4>
     <%= render "lists/settings", subject: subject, list: list %>
   </div>
 
-  <div class = "tasks">
-    <% list.incompleted_tasks(current_user).each do |task| %>
-      <%= render partial: task, locals: { subject: subject, list: list } %>
-    <% end %>
-  </div>
+  <%= render "lists/incompleted_tasks", subject: subject, list: list %>
 
-  <% if current_user.is_teacher? %>
+  <% if current_user.is_teacher? && add_task %>
     <%= form_for [subject, list, Task.new], remote: true do |f| %>
       <%= f.text_field :title, placeholder: "Add Task Here...", class: "form-control" %>
     <% end %>

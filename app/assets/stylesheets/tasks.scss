@@ -6,19 +6,16 @@
   margin-bottom: 12px;
 }
 
-.delete {
-  color: #b3b3b3;
 
-  &:visited {
-    color: #b3b3b3;
-  }
-
-  &:hover {
-    color: #808080;
-  }
-  
+a.delete {
   &:before {
-    content: '\2715';
+    @extend .fa-trash;
+  }
+}
+
+a.edit {    
+  &:before {
+    @extend .fa-edit;
   }
 }
 
@@ -28,13 +25,36 @@
 
 .task_title {
   flex-grow: 2;
-  line-height: 1.4;
+  line-height: 1.4;  
 }
 
 [id^="task_"] {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  a.icon {
+    margin-left: 4px;
+    visibility: hidden;
+    transition: 0.4s opacity ease-in-out;
+    opacity: 0;
+    color: #b3b3b3;
+
+    &:visited {
+      color: #b3b3b3;
+    }
+
+    &:hover {
+      color: #808080;
+    }
+  }
+
+  &:hover {
+    a.delete, a.edit {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
 }
 
 [id^="list_"] {

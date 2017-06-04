@@ -4,7 +4,7 @@
       <h2>List(s)</h2>      
     </div>
     <div class = "section">
-      <%= render "lists/unhidden_list", subject: @subject %> 
+      <%= render "lists/unhidden_list", subject: @subject, add_task: true %> 
     </div>
   </div>
 </div>
@@ -15,7 +15,7 @@
       <h2>Hidden List(s)</h2>      
     </div>
     <div class = "section">
-      <%= render "lists/hidden_list", subject: @subject %>
+      <%= render "lists/hidden_list", subject: @subject, add_task: true %>
     </div>
   </div>
 </div>

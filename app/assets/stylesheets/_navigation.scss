@@ -24,9 +24,11 @@
 .nav-header {
   @include base-nav-header($weight: bold, $color: $primary-hover-color);
   font-size: 24px;
+  
 
   a {
     color: white;
+    font-family: $primary-font;
   }
 }
 

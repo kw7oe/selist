@@ -1,9 +1,13 @@
 class TasksController < ApplicationController
   include ApplicationHelper
   before_action :set_list, :set_subject
+  before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def new 
     @task = @list.tasks.build
+  end
+
+  def show
   end
 
   def create
@@ -19,8 +23,19 @@ class TasksController < ApplicationController
     end
   end
 
+  def edit 
+  end
+
+  def update
+    if @task.update(task_params)
+      flash.notice = "Task updated successfully"
+      redirect_to @subject
+    else
+      render 'edit'
+    end
+  end
+
   def destroy 
-    @task = Task.find(params[:id])
     @task.destroy
     respond_to do |format|
       format.html { redirect_to(:back) }
@@ -40,6 +55,12 @@ class TasksController < ApplicationController
     @list = List.find(params[:list_id])
   rescue ActiveRecord::RecordNotFound
     invalid_model("list")
+  end
+
+  def set_task    
+    @task = Task.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    invalid_model("task")
   end
 
   def task_params

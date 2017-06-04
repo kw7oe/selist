@@ -3,17 +3,12 @@
     <div class = "col-3">
 
       <div class = "lists box box-panel">
-
         <div class = "header blue-header">   
           <h2><%= list.title %></h2>      
         </div>
 
         <div class = "section">
-          <div class = "tasks">
-            <% list.incompleted_tasks(current_user).each do |task| %>
-              <%= render partial: task, locals: { subject: subject, list: list } %>
-            <% end %>
-          </div>
+          <%= render "lists/incompleted_tasks", subject: subject, list: list %>
         </div>
       </div>
       

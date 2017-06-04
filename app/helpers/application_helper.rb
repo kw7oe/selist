@@ -3,7 +3,7 @@ module ApplicationHelper
 
   # View Helper: Brand Related
   def platform_name
-    "Selist"
+    "Flist"
   end
 
   def platform_description
@@ -12,16 +12,16 @@ module ApplicationHelper
 
   # View Helper: Navigation Bar
   def should_display_about_and_features
-    controller.controller_name == "static_pages" || 
-    controller.controller_name == "sessions" ||
-    (controller.controller_name == "users" && controller.action_name == "new")
+    controller.controller_name == "static_pages"
   end
 
   def active_link_to(path, expected_action_name, li_text) 
     class_name = nil
 
     if controller.action_name == expected_action_name
-      class_name = "active"
+      if controller.controller_name =~ /(users|teachers|students)/
+        class_name = "active"
+      end
     end
 
     link_to path do 

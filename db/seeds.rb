@@ -28,7 +28,7 @@ subject1 = teacher.subjects.create(title: "Artificial Intelligence")
 subject2 = teacher.subjects.create(title: "Data Structure & Algorithm")
 subject3 = teacher.subjects.create(title: "Communication Skill")
 
-10.times do 
+5.times do 
   teacher.subjects.create(title: Faker::Educator.course)
 end
 
