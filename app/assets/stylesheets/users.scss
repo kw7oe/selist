@@ -149,3 +149,16 @@ a.gear-settings-link {
     @extend .fa-gear;
   }
 }
+
+//change appearance of menu
+.middle-menu a{
+  // color:rgba(0, 0, 0, 0.4);
+  color:#999;
+  text-decoration: underline;
+  padding:0px 5px;
+}
+.middle-menu a:hover{
+  // color:rgb(0, 0, 0);
+  color:#111;
+  text-decoration: underline;
+}
