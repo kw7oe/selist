@@ -30,6 +30,10 @@
     color: white;
     font-family: $primary-font;
   }
+
+  li {
+    list-style-type: none;
+  }
 }
 
 .dropdown-toggle {

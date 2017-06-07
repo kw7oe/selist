@@ -1,6 +1,10 @@
 <nav class="nav">
   <div class="nav-header">
-    <%= link_to platform_name, root_url %>
+    <% if current_user %>
+      <%= active_link_to user_dashboard_path(current_user), "dashboard", platform_name %>
+    <% else %>
+      <%= link_to platform_name, root_url %>
+    <% end %>
   </div>
   <div class="dropdown-toggle" >
     <div class="dash"></div>
