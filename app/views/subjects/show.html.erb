@@ -3,6 +3,9 @@
   <p>taught by: 
     <%= link_to @subject.teacher.name, @subject.teacher %>  
   </p>
+  <% if current_user.is_student? %>
+    <p><strong>Total Points: </strong><%= @subject.point(current_user) %></p>
+  <% end %>
 
   <% if current_user.is_teacher? %>
   <div class="middle-menu">

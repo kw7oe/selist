@@ -22,6 +22,12 @@
     <%= @user.type == "Teacher" ? "Lecturer" : "Student" %>
   </p>
 
+  <% if current_user.is_student? %>
+    <p><strong>Total points earned: </strong>
+       <%= @user.point %> 
+    </p>
+  <% end %>
+
   <h2>Subjects: </h2>
   <% if @user.subjects.any? %>
     <ul class = "subjects">

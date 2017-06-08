@@ -10,14 +10,23 @@ student = Student.create(name: "Choong Kai Wern",
                          email: "choongkwern@hotmail.com", 
                          password: "password",
                          password_confirmation: "password")
-student2 = Student.create(name: "Peter Parker", 
+student2 = Student.create(name: "Marcus Mu", 
                          email: "student@example.com", 
                          password: "password",
                          password_confirmation: "password")
 
-
+NAME = [
+  "Marcus Mu", 
+  "Mah Qi Hao", 
+  "Lim Shi Hern", 
+  "Ong Li Sheng", 
+  "Chanan Loh",
+  "Tan Hao Lun",
+  "Isaac Lim",
+  "Josh Teh"
+]
 100.times do |i|
-  Student.create(name: Faker::Name.name,
+  Student.create(name: NAME[i],
                  email: "student#{i}@example.com",
                  password: "password",
                  password_confirmation: "password")
@@ -27,10 +36,6 @@ subject  = teacher.subjects.create(title: "Software Engineering")
 subject1 = teacher.subjects.create(title: "Artificial Intelligence")
 subject2 = teacher.subjects.create(title: "Data Structure & Algorithm")
 subject3 = teacher.subjects.create(title: "Communication Skill")
-
-5.times do 
-  teacher.subjects.create(title: Faker::Educator.course)
-end
 
 Subject.all.each do |subject|
   rand(1...10).times do |i|
@@ -44,14 +49,12 @@ Subject.all.each do |subject|
       list.tasks.create(title: "Finish #{Faker::Team.name}")
     end
   end
+
+  subject.users.push(Student.all)
 end
 
 Student.all.each do |student|
-  rand(1...5).times do 
-    Subject.find(rand(1..5)).users.push(student)
-  end
-
-  rand(1...50).times do 
+  5.times do 
     student.mark_task_done(Task.ids.sample).save
   end
 end

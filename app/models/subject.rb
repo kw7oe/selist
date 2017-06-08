@@ -18,7 +18,11 @@ class Subject < ApplicationRecord
   end
 
   def tasks
-    lists.flatten_map { |list| list.tasks  }
+    Task.where(list_id: list_ids)
+  end
+
+  def point(user_id)
+    TaskStatus.where(user_id: user_id, task_id: tasks).count
   end
 
   def unhidden_lists
