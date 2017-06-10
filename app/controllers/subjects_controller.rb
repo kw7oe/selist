@@ -13,7 +13,7 @@ class SubjectsController < ApplicationController
   def create
     @subject = Subject.create(subject_params)    
     if @subject.save 
-      redirect_to  @subject, notice: "#{@subject.title} created sucessfully"
+      redirect_to  @subject, notice: "Subject created sucessfully"
     else
       render "new"
     end
@@ -27,7 +27,7 @@ class SubjectsController < ApplicationController
 
   def update
     if @subject.update(subject_params)
-      redirect_to @subject
+      redirect_to @subject, notice: "Subject updated successfully"
     else
       render "edit"
     end
@@ -37,7 +37,10 @@ class SubjectsController < ApplicationController
     @subject.destroy 
 
     respond_to do |format|
-      format.html { redirect_to user_dashboard_path(current_user) }
+      format.html do 
+        flash.notice = "Subject deleted successfully"
+        redirect_to user_dashboard_path(current_user) 
+      end
       format.js
     end
   end

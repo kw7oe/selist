@@ -22,7 +22,7 @@
     <%= @user.type == "Teacher" ? "Lecturer" : "Student" %>
   </p>
 
-  <% if current_user.is_student? %>
+  <% if @user.is_student? %>
     <p><strong>Total points earned: </strong>
        <%= @user.point %> 
     </p>
