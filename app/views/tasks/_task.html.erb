@@ -4,6 +4,7 @@
       <%= check_box_tag "task_id", task.id, false, { class: "check_done" } %>
     <% end %>
   <% end %>
+  
   <% if current_user.is_teacher? %>
     <span class = "task_title">
       <%= link_to task.title, subject_list_task_path(subject,list, task) %>
@@ -13,8 +14,9 @@
       <%= task.title %>
     </span>
   <% end %>
+  
   <% if current_user.is_teacher? %>
     <%= link_to edit_subject_list_task_path(subject, list, task), class: 'icon edit' do %><% end %>
-    <%= link_to subject_list_task_path(subject, list, task), class: 'icon delete', method: :delete, remote: true, data: { confirm: "You are about to delete this task(#{task.title}). Are you sure?"} do %><% end %>
+    <%= link_to subject_list_task_path(subject, list, task), class: 'icon delete', method: :delete, data: { confirm: "You are about to delete this task (#{task.title}). Are you sure?"} do %><% end %>
   <% end %>
 </div>

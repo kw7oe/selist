@@ -1,21 +1,20 @@
-<% if subject.unhidden_lists.any? %>
-  <% subject.unhidden_lists.each do |list| %>
-    <div class = "col-3">
-
-      <div class = "lists box box-panel">
-        <div class = "header blue-header">   
-          <h2><%= list.title %></h2>      
-        </div>
-
-        <div class = "section">
-          <%= render "lists/incompleted_tasks", subject: subject, list: list %>
-        </div>
-      </div>
-      
+<div class = "col-8">
+  <div class = "lists box box-panel">
+    <div class = "header blue-header">   
+      <h2>List(s)</h2>      
     </div>
-  <% end %>
-<% else %>
-  <div class = "col-6 margin-3 center-block">
-  <p>No lists available.</p>
+    <div class = "section">
+      <%= render "lists/unhidden_list", subject: subject, add_task: true %> 
+    </div>
   </div>
-<% end %>
+</div>
+<div class = "col-4">
+  <div class = "lists box box-panel">
+    <div class = "header blue-header">   
+      <h2>Completed Tasks</h2>      
+    </div>
+    <div class = "section">
+      <%= render "lists/completed_task_list", subject: subject, add_task: true %> 
+    </div>
+  </div>
+</div>

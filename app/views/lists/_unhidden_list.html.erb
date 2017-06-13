@@ -4,9 +4,11 @@
   <% end %>
 <% else %>
   <p>
+  <em>
     No lists available.
     <% if current_user.is_teacher? %>
       <%= link_to "Add here", new_subject_list_path(subject) %>
     <% end %>
+  </em>
   </p>
 <% end %>

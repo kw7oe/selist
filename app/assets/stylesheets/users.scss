@@ -12,8 +12,12 @@
 }
 
 // Profile
-ul.subjects, ul.students {
+ul.subjects, ul.students, ul.tasks {
   margin-left: 48px;
+}
+
+ul.tasks {
+  margin-top: 12px;
 }
 
 ul.menu {

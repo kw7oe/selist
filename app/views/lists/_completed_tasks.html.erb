@@ -1,0 +1,9 @@
+<% if list.completed_tasks(current_user).any? %>
+  <% list.completed_tasks(current_user).each do |task| %>
+  <div class = "completed_tasks">
+    <span><%= task.title %></span>
+  </div>
+  <% end %>
+<% else %>
+  <p><em>No completed tasks.</em></p>
+<% end %>

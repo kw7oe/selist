@@ -1,0 +1,16 @@
+<% if subject.unhidden_lists.any? %>
+  <% subject.unhidden_lists.each do |list| %>
+    <div id = "<%= dom_id(list) %>">
+      <div class = "header">
+        <h4><%= list.title %></h4>
+      </div>
+      <%= render "lists/completed_tasks", subject: subject, list: list %>
+    </div>
+  <% end %>
+<% else %>
+  <p>
+  <em>
+    No lists available.
+  </em>
+  </p>
+<% end %>

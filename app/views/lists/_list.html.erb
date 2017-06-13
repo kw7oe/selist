@@ -7,7 +7,7 @@
   <%= render "lists/incompleted_tasks", subject: subject, list: list %>
 
   <% if current_user.is_teacher? && add_task %>
-    <%= form_for [subject, list, Task.new], remote: true do |f| %>
+    <%= form_for [subject, list, Task.new] do |f| %>
       <%= f.text_field :title, placeholder: "Add Task Here...", class: "form-control" %>
     <% end %>
   <% end %>

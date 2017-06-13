@@ -1,5 +1,17 @@
-<% unless user.subjects.empty? %>
+<% if user.subjects.any? %>
   <% user.subjects.each do |subject| %>
     <%= render subject %>     
   <% end %> 
+<% else %>
+  <div class = "col-6 margin-3 center-block">
+  <p>
+  <em>
+    <% if current_user.is_student? %>
+      You're not enrolled in any subjects.
+    <% else %>
+      No subjects is created by you. <%= link_to "Add Subject", new_subject_path %>
+    <% end %>
+  </em>
+  </p>
+  </div>
 <% end %>

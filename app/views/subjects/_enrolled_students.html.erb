@@ -7,13 +7,15 @@
     </div>
 
     <div class = "section">
+      <% if subject.students.any? %>
       <ul class = "students">
-        <% subject.users.each do |user| %>
-          <% if user.is_student? %>
-            <li><%= user.name %></li>
-          <% end %>
+        <% subject.students.each do |user| %>
+          <li><%= user.name %></li>
         <% end %>
       </ul>
+      <% else %>
+        <p><em>No students enrolled in this subject yet</em></p>
+      <% end %>
     </div>
 
   </div>

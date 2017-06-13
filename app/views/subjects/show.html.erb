@@ -11,7 +11,7 @@
   <div class="middle-menu">
     <%= link_to "Add List", new_subject_list_path(@subject) %>
     <%= link_to "Edit Subject", edit_subject_path(@subject) %>
-    <%= link_to "Delete Subject", subject_path(@subject), method: :delete, data: { confirm: "You are about to delete this subject(#{@subject.title}). Are you sure?" } %>
+    <%= link_to "Delete Subject", subject_path(@subject), method: :delete, data: { confirm: "You are about to delete this subject (#{@subject.title}). Are you sure?" } %>
   </div>
   <% end %>
 </div>

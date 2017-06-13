@@ -11,5 +11,9 @@ class List < ApplicationRecord
   def incompleted_tasks(user_id)
     tasks.select { |task| task.incompleted_task?(user_id) }
   end
+
+  def completed_tasks(user_id)
+    tasks.select { |task| !task.incompleted_task?(user_id) }
+  end
   
 end

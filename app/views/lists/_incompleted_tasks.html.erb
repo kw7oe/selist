@@ -4,6 +4,14 @@
       <%= render partial: task, locals: { subject: subject, list: list } %>
     <% end %>
   <% else %>
-    <p class = "green">Congratulations, you have done all the tasks here.</p>
+    <% if current_user.is_student? %>
+    <p class = "green">
+    <em>
+    Congratulations, you have done all the tasks.
+    </em>
+    </p>
+    <% else %>
+    <p><em>No tasks available.</em></p>
+    <% end %>
   <% end %>
 </div>
