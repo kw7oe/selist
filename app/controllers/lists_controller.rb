@@ -28,7 +28,7 @@ class ListsController < ApplicationController
   def update
 
     if @list.update(list_params)
-      redirect_to subject_path(@subject), notice: "List succesfully updated"
+      redirect_to subject_path(@subject), notice: "List updated succesfully"
     else
       render "edit"
     end
@@ -38,7 +38,10 @@ class ListsController < ApplicationController
     @list.destroy
 
     respond_to do |format|
-      format.html { redirect_to subject_path(@subject) }
+      format.html do
+       flash.notice = 'List deleted succesfully'
+       redirect_back(fallback_location: subject_path(@subject)) 
+     end
       format.js
     end
   end

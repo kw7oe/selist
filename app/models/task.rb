@@ -19,11 +19,11 @@ class Task < ApplicationRecord
   end
 
   def completed_students_count
-    TaskStatus.joins(:user).where(task_id: 1).count
+    TaskStatus.joins(:user).where(task_id: id).count
   end
 
   def completed_students
-    TaskStatus.joins(:user).where(task_id: 1).select(:user_id, :name)
+    TaskStatus.joins(:user).where(task_id: id).select(:user_id, :name)
   end
 
 end
