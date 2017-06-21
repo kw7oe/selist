@@ -4,6 +4,7 @@ class SubjectsController < ApplicationController
   before_action :set_subject, 
                 only: [:show, :edit, :update, 
                        :destroy, :edit_students] 
+  before_action :authenticate_user
   before_action :check_is_teacher, except: [:show]
 
   def new 

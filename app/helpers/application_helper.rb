@@ -41,4 +41,10 @@ module ApplicationHelper
     redirect_back(fallback_location: user_dashboard_path(current_user))
   end
 
+  def authenticate_user
+    if current_user.nil?
+      redirect_to sign_in_path, notice: "Please sign in before proceed."
+    end
+  end
+
 end
