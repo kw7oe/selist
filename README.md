@@ -1,6 +1,6 @@
 # Selist
 
-Selist is a platform acts as a bridge between students and teachers.
+Selist _(which has been renamed to Flist in the application)_ is a platform acts as a bridge between students and teachers.
 
 ### Setup
 
@@ -37,6 +37,12 @@ rails db:migrate
 rails db:seed
 ```
 
+or 
+
+```
+ruby reset_db.rb
+```
+
 5. Start the server.
 
 ```
@@ -44,9 +50,3 @@ rails s
 ```
 
 6. Visit it at `localhost:3000`.
-
-### Features
-
-* Track Students Weekly Performance
-* Beautiful Calender
-
